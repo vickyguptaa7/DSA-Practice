@@ -1,0 +1,132 @@
+/**
+Theme Name: Astra-child
+Author: Brainstorm Force
+Author URI: http://wpastra.com/about/
+Description: Astra is the fastest, fully customizable & beautiful theme suitable for blogs, personal portfolios and business websites. It is very lightweight (less than 50KB on frontend) and offers unparalleled speed. Built with SEO in mind, Astra comes with schema.org code integrated so search engines will love your site. Astra offers plenty of sidebar options and widget areas giving you a full control for customizations. Furthermore, we have included special features and templates so feel free to choose any of your favorite page builder plugin to create pages flexibly. Some of the other features: # WooCommerce Ready # Responsive # Compatible with major plugins # Translation Ready # Extendible with premium addons # Regularly updated # Designed, Developed, Maintained & Supported by Brainstorm Force. Looking for a perfect base theme? Look no further. Astra is fast, fully customizable and beautiful theme!
+Version: 1.2.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: astra-child
+Template: astra
+*/
+
+code{
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    font-size: 0.9em;
+    line-height: 1.5em;
+}
+
+.wp-block-preformatted{
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    font-size: 0.9em;
+    line-height: 1.5em;
+		background-color: #fafafa;
+}
+
+.wp-block-code{
+	background-color: #fafafa;
+	font-size: 0.9em;
+  line-height: 1.5em;
+	color: black;
+}
+
+table{
+	border: 3px solid black;
+}
+
+table thead th{
+    border-bottom: 5px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+table td{
+    border: 1px solid black;
+}
+
+.kt-tabs-content-wrap{
+    margin-bottom: 1.6em;
+}
+
+.comment-reply-title{
+	font-size: inherit;
+	font-weight: 700;
+}
+
+.wp-block-kadence-tab .wp-block-code{
+	margin-bottom: 0;
+}
+
+.archive .entry-title, .blog .entry-title, .search .entry-title{
+	font-size: 30px;
+}
+
+.entry-title a{
+	font-weight: 700;
+}
+
+.uagb-toc__wrap{
+	margin-bottom: 1.6em;
+}
+
+/*boldness */
+b, strong{
+	font-weight: 600;
+}
+
+/* reduce pading of posts */
+.ast-separate-container .ast-article-single, .ast-separate-container .comment-respond{
+	padding: 32px 48px;
+	-webkit-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+}
+
+/* text/ logo in nav bar 
+ to decrease size of nav abr */
+.ast-site-identity{
+	padding: 8px;
+}
+
+/* homepage post margin and border */
+.ast-separate-container .ast-article-post{
+	margin-bottom: 32px;
+	padding: 32px 48px;
+	border-left: 4px solid #CCE5FF;
+	-webkit-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+}
+
+/* shadow to nav-bar */
+.main-header-bar{
+	-webkit-box-shadow: 0px -1px 5px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 0px -1px 5px 0px rgba(0,0,0,1);
+	box-shadow: 0px -1px 5px 0px rgba(0,0,0,1);
+}
+
+/* left-margin of list */
+ol, ul{
+	margin-left: 1.5em;
+}
+
+.ast-right-sidebar #primary, .ast-right-sidebar #secondary{
+	margin-top: 32px;
+} 
+
+.ast-right-sidebar #primary{
+	padding-right: 32px;
+}
+
+.ast-right-sidebar #secondary{
+	padding-left: 32px;
+}
+
+/* remove "leave comment below" under the title */
+.entry-meta, .entry-meta *{
+	display: none;
+}
+
+h4, h5, h6 {
+	line-height: 3;
+}

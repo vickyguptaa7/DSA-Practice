@@ -1,0 +1,1 @@
+in.push_back(curr->data);

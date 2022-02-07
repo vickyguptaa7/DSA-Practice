@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://slaystudy.com/hierholzers-algorithm/ -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v17.6 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Hierholzer's Algorithm | SlayStudy</title>
+	<meta name="description" content="Hierholzer&#39;s algorithm is another algorithm to find the Euler Path or Euler circuit in a graph. It&#39;s time complexity is O(E).">
+	<link rel="canonical" href="https://slaystudy.com/hierholzers-algorithm/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Hierholzer&#39;s Algorithm | SlayStudy">
+	<meta property="og:description" content="Hierholzer&#39;s algorithm is another algorithm to find the Euler Path or Euler circuit in a graph. It&#39;s time complexity is O(E).">
+	<meta property="og:url" content="https://slaystudy.com/hierholzers-algorithm/">
+	<meta property="og:site_name" content="SlayStudy">
+	<meta property="article:published_time" content="2020-07-27T19:01:39+00:00">
+	<meta property="article:modified_time" content="2021-03-01T06:50:07+00:00">
+	<meta property="og:image" content="https://slaystudy.com/wp-content/uploads/2020/07/Hierholzer-example-1.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:label1" content="Written by">
+	<meta name="twitter:data1" content="admin">
+	<meta name="twitter:label2" content="Est. reading time">
+	<meta name="twitter:data2" content="12 minutes">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://slaystudy.com/#website","url":"https://slaystudy.com/","name":"SlayStudy","description":"Learn Computer Science","publisher":{"@id":"https://slaystudy.com/#/schema/person/822e9015b85998bcc0304442c9a8b708"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://slaystudy.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://slaystudy.com/hierholzers-algorithm/#primaryimage","inLanguage":"en-US","url":"https://slaystudy.com/wp-content/uploads/2020/07/Hierholzer-example-1.png","contentUrl":"https://slaystudy.com/wp-content/uploads/2020/07/Hierholzer-example-1.png","width":757,"height":268},{"@type":"WebPage","@id":"https://slaystudy.com/hierholzers-algorithm/#webpage","url":"https://slaystudy.com/hierholzers-algorithm/","name":"Hierholzer's Algorithm | SlayStudy","isPartOf":{"@id":"https://slaystudy.com/#website"},"primaryImageOfPage":{"@id":"https://slaystudy.com/hierholzers-algorithm/#primaryimage"},"datePublished":"2020-07-27T19:01:39+00:00","dateModified":"2021-03-01T06:50:07+00:00","description":"Hierholzer's algorithm is another algorithm to find the Euler Path or Euler circuit in a graph. It's time complexity is O(E).","breadcrumb":{"@id":"https://slaystudy.com/hierholzers-algorithm/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://slaystudy.com/hierholzers-algorithm/"]}]},{"@type":"BreadcrumbList","@id":"https://slaystudy.com/hierholzers-algorithm/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://slaystudy.com/"},{"@type":"ListItem","position":2,"name":"Hierholzer&#8217;s Algorithm"}]},{"@type":"Article","@id":"https://slaystudy.com/hierholzers-algorithm/#article","isPartOf":{"@id":"https://slaystudy.com/hierholzers-algorithm/#webpage"},"author":{"@id":"https://slaystudy.com/#/schema/person/822e9015b85998bcc0304442c9a8b708"},"headline":"Hierholzer&#8217;s Algorithm","datePublished":"2020-07-27T19:01:39+00:00","dateModified":"2021-03-01T06:50:07+00:00","mainEntityOfPage":{"@id":"https://slaystudy.com/hierholzers-algorithm/#webpage"},"wordCount":974,"commentCount":1,"publisher":{"@id":"https://slaystudy.com/#/schema/person/822e9015b85998bcc0304442c9a8b708"},"image":{"@id":"https://slaystudy.com/hierholzers-algorithm/#primaryimage"},"thumbnailUrl":"https://slaystudy.com/wp-content/uploads/2020/07/Hierholzer-example-1.png","articleSection":["Algorithm","Graph"],"inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["https://slaystudy.com/hierholzers-algorithm/#respond"]}]},{"@type":["Person","Organization"],"@id":"https://slaystudy.com/#/schema/person/822e9015b85998bcc0304442c9a8b708","name":"admin","image":{"@type":"ImageObject","@id":"https://slaystudy.com/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/5c21639c3271e8fdfbaa287b2fa5e154?s=96&d=retro&r=g","contentUrl":"https://secure.gravatar.com/avatar/5c21639c3271e8fdfbaa287b2fa5e154?s=96&d=retro&r=g","caption":"admin"},"logo":{"@id":"https://slaystudy.com/#personlogo"},"description":"I am a college student. Interested in teaching. Aspire to become a great instructor one day.","sameAs":["http://slaystudy.com"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="SlayStudy » Feed" href="https://slaystudy.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="SlayStudy » Comments Feed" href="https://slaystudy.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="SlayStudy » Hierholzer’s Algorithm Comments Feed" href="https://slaystudy.com/hierholzers-algorithm/feed/">
+		<!-- This site uses the Google Analytics by MonsterInsights plugin v8.2.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+							<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/js" type="text/javascript" data-cfasync="false" defer="" data-deferred="1"></script>
+			<script type="text/javascript" data-cfasync="false" src="data:text/javascript;base64,dmFyIG1pX3ZlcnNpb249JzguMi4wJzt2YXIgbWlfdHJhY2tfdXNlcj0hMDt2YXIgbWlfbm9fdHJhY2tfcmVhc29uPScnO3ZhciBkaXNhYmxlU3Rycz1bJ2dhLWRpc2FibGUtVUEtMTY0OTM4MDI2LTEnLF07ZnVuY3Rpb24gX19ndGFnVHJhY2tlcklzT3B0ZWRPdXQoKXtmb3IodmFyIGluZGV4PTA7aW5kZXg8ZGlzYWJsZVN0cnMubGVuZ3RoO2luZGV4Kyspe2lmKGRvY3VtZW50LmNvb2tpZS5pbmRleE9mKGRpc2FibGVTdHJzW2luZGV4XSsnPXRydWUnKT4tMSl7cmV0dXJuITB9fQpyZXR1cm4hMX0KaWYoX19ndGFnVHJhY2tlcklzT3B0ZWRPdXQoKSl7Zm9yKHZhciBpbmRleD0wO2luZGV4PGRpc2FibGVTdHJzLmxlbmd0aDtpbmRleCsrKXt3aW5kb3dbZGlzYWJsZVN0cnNbaW5kZXhdXT0hMH19CmZ1bmN0aW9uIF9fZ3RhZ1RyYWNrZXJPcHRvdXQoKXtmb3IodmFyIGluZGV4PTA7aW5kZXg8ZGlzYWJsZVN0cnMubGVuZ3RoO2luZGV4Kyspe2RvY3VtZW50LmNvb2tpZT1kaXNhYmxlU3Ryc1tpbmRleF0rJz10cnVlOyBleHBpcmVzPVRodSwgMzEgRGVjIDIwOTkgMjM6NTk6NTkgVVRDOyBwYXRoPS8nO3dpbmRvd1tkaXNhYmxlU3Ryc1tpbmRleF1dPSEwfX0KaWYoJ3VuZGVmaW5lZCc9PT10eXBlb2YgZ2FPcHRvdXQpe2Z1bmN0aW9uIGdhT3B0b3V0KCl7X19ndGFnVHJhY2tlck9wdG91dCgpfX0Kd2luZG93LmRhdGFMYXllcj13aW5kb3cuZGF0YUxheWVyfHxbXTt3aW5kb3cuTW9uc3Rlckluc2lnaHRzRHVhbFRyYWNrZXI9e2hlbHBlcnM6e30sdHJhY2tlcnM6e30sfTtpZihtaV90cmFja191c2VyKXtmdW5jdGlvbiBfX2d0YWdEYXRhTGF5ZXIoKXtkYXRhTGF5ZXIucHVzaChhcmd1bWVudHMpfQpmdW5jdGlvbiBfX2d0YWdUcmFja2VyKHR5cGUsbmFtZSxwYXJhbWV0ZXJzKXtpZighcGFyYW1ldGVycyl7cGFyYW1ldGVycz17fX0KaWYocGFyYW1ldGVycy5zZW5kX3RvKXtfX2d0YWdEYXRhTGF5ZXIuYXBwbHkobnVsbCxhcmd1bWVudHMpO3JldHVybn0KaWYodHlwZT09PSdldmVudCcpe3BhcmFtZXRlcnMuc2VuZF90bz1tb25zdGVyaW5zaWdodHNfZnJvbnRlbmQudWE7X19ndGFnRGF0YUxheWVyKHR5cGUsbmFtZSxwYXJhbWV0ZXJzKX1lbHNle19fZ3RhZ0RhdGFMYXllci5hcHBseShudWxsLGFyZ3VtZW50cyl9fQpfX2d0YWdUcmFja2VyKCdqcycsbmV3IERhdGUoKSk7X19ndGFnVHJhY2tlcignc2V0Jyx7J2RldmVsb3Blcl9pZC5kWkdJelpHJzohMCx9KTtfX2d0YWdUcmFja2VyKCdjb25maWcnLCdVQS0xNjQ5MzgwMjYtMScseyJmb3JjZVNTTCI6InRydWUiLCJsaW5rX2F0dHJpYnV0aW9uIjoidHJ1ZSJ9KTt3aW5kb3cuZ3RhZz1fX2d0YWdUcmFja2VyOyhmdW5jdGlvbigpe3ZhciBub29wZm49ZnVuY3Rpb24oKXtyZXR1cm4gbnVsbH07dmFyIG5ld3RyYWNrZXI9ZnVuY3Rpb24oKXtyZXR1cm4gbmV3IFRyYWNrZXIoKX07dmFyIFRyYWNrZXI9ZnVuY3Rpb24oKXtyZXR1cm4gbnVsbH07dmFyIHA9VHJhY2tlci5wcm90b3R5cGU7cC5nZXQ9bm9vcGZuO3Auc2V0PW5vb3BmbjtwLnNlbmQ9ZnVuY3Rpb24oKXt2YXIgYXJncz1BcnJheS5wcm90b3R5cGUuc2xpY2UuY2FsbChhcmd1bWVudHMpO2FyZ3MudW5zaGlmdCgnc2VuZCcpO19fZ2FUcmFja2VyLmFwcGx5KG51bGwsYXJncyl9O3ZhciBfX2dhVHJhY2tlcj1mdW5jdGlvbigpe3ZhciBsZW49YXJndW1lbnRzLmxlbmd0aDtpZihsZW49PT0wKXtyZXR1cm59CnZhciBmPWFyZ3VtZW50c1tsZW4tMV07aWYodHlwZW9mIGYhPT0nb2JqZWN0J3x8Zj09PW51bGx8fHR5cGVvZiBmLmhpdENhbGxiYWNrIT09J2Z1bmN0aW9uJyl7aWYoJ3NlbmQnPT09YXJndW1lbnRzWzBdKXt2YXIgaGl0Q29udmVydGVkLGhpdE9iamVjdD0hMSxhY3Rpb247aWYoJ2V2ZW50Jz09PWFyZ3VtZW50c1sxXSl7aWYoJ3VuZGVmaW5lZCchPT10eXBlb2YgYXJndW1lbnRzWzNdKXtoaXRPYmplY3Q9eydldmVudEFjdGlvbic6YXJndW1lbnRzWzNdLCdldmVudENhdGVnb3J5Jzphcmd1bWVudHNbMl0sJ2V2ZW50TGFiZWwnOmFyZ3VtZW50c1s0XSwndmFsdWUnOmFyZ3VtZW50c1s1XT9hcmd1bWVudHNbNV06MSx9fX0KaWYoJ3BhZ2V2aWV3Jz09PWFyZ3VtZW50c1sxXSl7aWYoJ3VuZGVmaW5lZCchPT10eXBlb2YgYXJndW1lbnRzWzJdKXtoaXRPYmplY3Q9eydldmVudEFjdGlvbic6J3BhZ2VfdmlldycsJ3BhZ2VfcGF0aCc6YXJndW1lbnRzWzJdLH19fQppZih0eXBlb2YgYXJndW1lbnRzWzJdPT09J29iamVjdCcpe2hpdE9iamVjdD1hcmd1bWVudHNbMl19CmlmKHR5cGVvZiBhcmd1bWVudHNbNV09PT0nb2JqZWN0Jyl7T2JqZWN0LmFzc2lnbihoaXRPYmplY3QsYXJndW1lbnRzWzVdKX0KaWYoJ3VuZGVmaW5lZCchPT10eXBlb2YgYXJndW1lbnRzWzFdLmhpdFR5cGUpe2hpdE9iamVjdD1hcmd1bWVudHNbMV07aWYoJ3BhZ2V2aWV3Jz09PWhpdE9iamVjdC5oaXRUeXBlKXtoaXRPYmplY3QuZXZlbnRBY3Rpb249J3BhZ2Vfdmlldyd9fQppZihoaXRPYmplY3Qpe2FjdGlvbj0ndGltaW5nJz09PWFyZ3VtZW50c1sxXS5oaXRUeXBlPyd0aW1pbmdfY29tcGxldGUnOmhpdE9iamVjdC5ldmVudEFjdGlvbjtoaXRDb252ZXJ0ZWQ9bWFwQXJncyhoaXRPYmplY3QpO19fZ3RhZ1RyYWNrZXIoJ2V2ZW50JyxhY3Rpb24saGl0Q29udmVydGVkKX19CnJldHVybn0KZnVuY3Rpb24gbWFwQXJncyhhcmdzKXt2YXIgYXJnLGhpdD17fTt2YXIgZ2FNYXA9eydldmVudENhdGVnb3J5JzonZXZlbnRfY2F0ZWdvcnknLCdldmVudEFjdGlvbic6J2V2ZW50X2FjdGlvbicsJ2V2ZW50TGFiZWwnOidldmVudF9sYWJlbCcsJ2V2ZW50VmFsdWUnOidldmVudF92YWx1ZScsJ25vbkludGVyYWN0aW9uJzonbm9uX2ludGVyYWN0aW9uJywndGltaW5nQ2F0ZWdvcnknOidldmVudF9jYXRlZ29yeScsJ3RpbWluZ1Zhcic6J25hbWUnLCd0aW1pbmdWYWx1ZSc6J3ZhbHVlJywndGltaW5nTGFiZWwnOidldmVudF9sYWJlbCcsJ3BhZ2UnOidwYWdlX3BhdGgnLCdsb2NhdGlvbic6J3BhZ2VfbG9jYXRpb24nLCd0aXRsZSc6J3BhZ2VfdGl0bGUnLH07Zm9yKGFyZyBpbiBhcmdzKXtpZighKCFhcmdzLmhhc093blByb3BlcnR5KGFyZyl8fCFnYU1hcC5oYXNPd25Qcm9wZXJ0eShhcmcpKSl7aGl0W2dhTWFwW2FyZ11dPWFyZ3NbYXJnXX1lbHNle2hpdFthcmddPWFyZ3NbYXJnXX19CnJldHVybiBoaXR9CnRyeXtmLmhpdENhbGxiYWNrKCl9Y2F0Y2goZXgpe319O19fZ2FUcmFja2VyLmNyZWF0ZT1uZXd0cmFja2VyO19fZ2FUcmFja2VyLmdldEJ5TmFtZT1uZXd0cmFja2VyO19fZ2FUcmFja2VyLmdldEFsbD1mdW5jdGlvbigpe3JldHVybltdfTtfX2dhVHJhY2tlci5yZW1vdmU9bm9vcGZuO19fZ2FUcmFja2VyLmxvYWRlZD0hMDt3aW5kb3cuX19nYVRyYWNrZXI9X19nYVRyYWNrZXJ9KSgpfWVsc2V7Y29uc29sZS5sb2coIiIpOyhmdW5jdGlvbigpe2Z1bmN0aW9uIF9fZ3RhZ1RyYWNrZXIoKXtyZXR1cm4gbnVsbH0Kd2luZG93Ll9fZ3RhZ1RyYWNrZXI9X19ndGFnVHJhY2tlcjt3aW5kb3cuZ3RhZz1fX2d0YWdUcmFja2VyfSkoKX0=" defer=""></script>
+				<!-- / Google Analytics by MonsterInsights -->
+				<script src="data:text/javascript;base64,d2luZG93Ll93cGVtb2ppU2V0dGluZ3M9eyJiYXNlVXJsIjoiaHR0cHM6XC9cL3Mudy5vcmdcL2ltYWdlc1wvY29yZVwvZW1vamlcLzEzLjEuMFwvNzJ4NzJcLyIsImV4dCI6Ii5wbmciLCJzdmdVcmwiOiJodHRwczpcL1wvcy53Lm9yZ1wvaW1hZ2VzXC9jb3JlXC9lbW9qaVwvMTMuMS4wXC9zdmdcLyIsInN2Z0V4dCI6Ii5zdmciLCJzb3VyY2UiOnsiY29uY2F0ZW1vamkiOiJodHRwczpcL1wvc2xheXN0dWR5LmNvbVwvd3AtaW5jbHVkZXNcL2pzXC93cC1lbW9qaS1yZWxlYXNlLm1pbi5qcz92ZXI9NS44LjIifX07IWZ1bmN0aW9uKGUsYSx0KXt2YXIgbixyLG8saT1hLmNyZWF0ZUVsZW1lbnQoImNhbnZhcyIpLHA9aS5nZXRDb250ZXh0JiZpLmdldENvbnRleHQoIjJkIik7ZnVuY3Rpb24gcyhlLHQpe3ZhciBhPVN0cmluZy5mcm9tQ2hhckNvZGU7cC5jbGVhclJlY3QoMCwwLGkud2lkdGgsaS5oZWlnaHQpLHAuZmlsbFRleHQoYS5hcHBseSh0aGlzLGUpLDAsMCk7ZT1pLnRvRGF0YVVSTCgpO3JldHVybiBwLmNsZWFyUmVjdCgwLDAsaS53aWR0aCxpLmhlaWdodCkscC5maWxsVGV4dChhLmFwcGx5KHRoaXMsdCksMCwwKSxlPT09aS50b0RhdGFVUkwoKX1mdW5jdGlvbiBjKGUpe3ZhciB0PWEuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7dC5zcmM9ZSx0LmRlZmVyPXQudHlwZT0idGV4dC9qYXZhc2NyaXB0IixhLmdldEVsZW1lbnRzQnlUYWdOYW1lKCJoZWFkIilbMF0uYXBwZW5kQ2hpbGQodCl9Zm9yKG89QXJyYXkoImZsYWciLCJlbW9qaSIpLHQuc3VwcG9ydHM9e2V2ZXJ5dGhpbmc6ITAsZXZlcnl0aGluZ0V4Y2VwdEZsYWc6ITB9LHI9MDtyPG8ubGVuZ3RoO3IrKyl0LnN1cHBvcnRzW29bcl1dPWZ1bmN0aW9uKGUpe2lmKCFwfHwhcC5maWxsVGV4dClyZXR1cm4hMTtzd2l0Y2gocC50ZXh0QmFzZWxpbmU9InRvcCIscC5mb250PSI2MDAgMzJweCBBcmlhbCIsZSl7Y2FzZSJmbGFnIjpyZXR1cm4gcyhbMTI3OTg3LDY1MDM5LDgyMDUsOTg5NSw2NTAzOV0sWzEyNzk4Nyw2NTAzOSw4MjAzLDk4OTUsNjUwMzldKT8hMTohcyhbNTUzNTYsNTY4MjYsNTUzNTYsNTY4MTldLFs1NTM1Niw1NjgyNiw4MjAzLDU1MzU2LDU2ODE5XSkmJiFzKFs1NTM1Niw1NzMzMiw1NjEyOCw1NjQyMyw1NjEyOCw1NjQxOCw1NjEyOCw1NjQyMSw1NjEyOCw1NjQzMCw1NjEyOCw1NjQyMyw1NjEyOCw1NjQ0N10sWzU1MzU2LDU3MzMyLDgyMDMsNTYxMjgsNTY0MjMsODIwMyw1NjEyOCw1NjQxOCw4MjAzLDU2MTI4LDU2NDIxLDgyMDMsNTYxMjgsNTY0MzAsODIwMyw1NjEyOCw1NjQyMyw4MjAzLDU2MTI4LDU2NDQ3XSk7Y2FzZSJlbW9qaSI6cmV0dXJuIXMoWzEwMDg0LDY1MDM5LDgyMDUsNTUzNTcsNTY2MTNdLFsxMDA4NCw2NTAzOSw4MjAzLDU1MzU3LDU2NjEzXSl9cmV0dXJuITF9KG9bcl0pLHQuc3VwcG9ydHMuZXZlcnl0aGluZz10LnN1cHBvcnRzLmV2ZXJ5dGhpbmcmJnQuc3VwcG9ydHNbb1tyXV0sImZsYWciIT09b1tyXSYmKHQuc3VwcG9ydHMuZXZlcnl0aGluZ0V4Y2VwdEZsYWc9dC5zdXBwb3J0cy5ldmVyeXRoaW5nRXhjZXB0RmxhZyYmdC5zdXBwb3J0c1tvW3JdXSk7dC5zdXBwb3J0cy5ldmVyeXRoaW5nRXhjZXB0RmxhZz10LnN1cHBvcnRzLmV2ZXJ5dGhpbmdFeGNlcHRGbGFnJiYhdC5zdXBwb3J0cy5mbGFnLHQuRE9NUmVhZHk9ITEsdC5yZWFkeUNhbGxiYWNrPWZ1bmN0aW9uKCl7dC5ET01SZWFkeT0hMH0sdC5zdXBwb3J0cy5ldmVyeXRoaW5nfHwobj1mdW5jdGlvbigpe3QucmVhZHlDYWxsYmFjaygpfSxhLmFkZEV2ZW50TGlzdGVuZXI/KGEuYWRkRXZlbnRMaXN0ZW5lcigiRE9NQ29udGVudExvYWRlZCIsbiwhMSksZS5hZGRFdmVudExpc3RlbmVyKCJsb2FkIixuLCExKSk6KGUuYXR0YWNoRXZlbnQoIm9ubG9hZCIsbiksYS5hdHRhY2hFdmVudCgib25yZWFkeXN0YXRlY2hhbmdlIixmdW5jdGlvbigpeyJjb21wbGV0ZSI9PT1hLnJlYWR5U3RhdGUmJnQucmVhZHlDYWxsYmFjaygpfSkpLChuPXQuc291cmNlfHx7fSkuY29uY2F0ZW1vamk/YyhuLmNvbmNhdGVtb2ppKTpuLndwZW1vamkmJm4udHdlbW9qaSYmKGMobi50d2Vtb2ppKSxjKG4ud3BlbW9qaSkpKX0od2luZG93LGRvY3VtZW50LHdpbmRvdy5fd3BlbW9qaVNldHRpbmdzKQ==" defer=""></script>
+		<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-quicklatex-format-css" href="./Hierholzer&#39;s Algorithm _ SlayStudy_files/quicklatex-format.css" media="all">
+<link rel="stylesheet" id="astra-theme-css-css" href="./Hierholzer&#39;s Algorithm _ SlayStudy_files/style.min.css" media="all">
+<style id="astra-theme-css-inline-css">
+html{font-size:112.5%;}a,.page-title{color:#5095fc;}a:hover,a:focus{color:#004093;}body,button,input,select,textarea,.ast-button,.ast-custom-button{font-family:'Rubik',sans-serif;font-weight:400;font-size:18px;font-size:1rem;}blockquote{color:rgba(0,0,0,0.73);}h1,.entry-content h1,h2,.entry-content h2,h3,.entry-content h3,h4,.entry-content h4,h5,.entry-content h5,h6,.entry-content h6,.site-title,.site-title a{font-weight:normal;text-transform:none;}.site-title{font-size:35px;font-size:1.9444444444444rem;}header .site-logo-img .custom-logo-link img{max-width:157px;}.astra-logo-svg{width:157px;}.ast-archive-description .ast-archive-title{font-size:40px;font-size:2.2222222222222rem;}.site-header .site-description{font-size:15px;font-size:0.83333333333333rem;}.entry-title{font-size:40px;font-size:2.2222222222222rem;}.comment-reply-title{font-size:29px;font-size:1.6111111111111rem;}.ast-comment-list #cancel-comment-reply-link{font-size:18px;font-size:1rem;}h1,.entry-content h1{font-size:34px;font-size:1.8888888888889rem;font-weight:700;font-family:Verdana,Helvetica,Arial,sans-serif;line-height:1;text-transform:none;}h2,.entry-content h2{font-size:28px;font-size:1.5555555555556rem;font-weight:400;font-family:Verdana,Helvetica,Arial,sans-serif;line-height:3;text-transform:none;}h3,.entry-content h3{font-size:23px;font-size:1.2777777777778rem;font-weight:400;font-family:Verdana,Helvetica,Arial,sans-serif;line-height:3;text-transform:none;}h4,.entry-content h4{font-size:20px;font-size:1.1111111111111rem;line-height:1;}h5,.entry-content h5{font-size:20px;font-size:1.1111111111111rem;line-height:1;}h6,.entry-content h6{font-size:18px;font-size:1rem;line-height:1;}.ast-single-post .entry-title,.page-title{font-size:1.8em;}#secondary,#secondary button,#secondary input,#secondary select,#secondary textarea{font-size:18px;font-size:1rem;}::selection{background-color:#bedce8;color:#000000;}body,h1,.entry-title a,.entry-content h1,h2,.entry-content h2,h3,.entry-content h3,h4,.entry-content h4,h5,.entry-content h5,h6,.entry-content h6,.wc-block-grid__product-title{color:rgba(0,0,0,0.73);}.tagcloud a:hover,.tagcloud a:focus,.tagcloud a.current-item{color:#000000;border-color:#5095fc;background-color:#5095fc;}.main-header-menu .menu-link,.ast-header-custom-item a{color:rgba(0,0,0,0.73);}.main-header-menu .menu-item:hover > .menu-link,.main-header-menu .menu-item:hover > .ast-menu-toggle,.main-header-menu .ast-masthead-custom-menu-items a:hover,.main-header-menu .menu-item.focus > .menu-link,.main-header-menu .menu-item.focus > .ast-menu-toggle,.main-header-menu .current-menu-item > .menu-link,.main-header-menu .current-menu-ancestor > .menu-link,.main-header-menu .current-menu-item > .ast-menu-toggle,.main-header-menu .current-menu-ancestor > .ast-menu-toggle{color:#5095fc;}input:focus,input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="reset"]:focus,input[type="search"]:focus,textarea:focus{border-color:#5095fc;}input[type="radio"]:checked,input[type=reset],input[type="checkbox"]:checked,input[type="checkbox"]:hover:checked,input[type="checkbox"]:focus:checked,input[type=range]::-webkit-slider-thumb{border-color:#5095fc;background-color:#5095fc;box-shadow:none;}.site-footer a:hover + .post-count,.site-footer a:focus + .post-count{background:#5095fc;border-color:#5095fc;}.ast-small-footer{color:#a3a3a3;}.ast-small-footer > .ast-footer-overlay{background-color:#000000;;}.footer-adv .footer-adv-overlay{border-top-style:solid;border-top-color:#7a7a7a;}.ast-comment-meta{line-height:1.666666667;font-size:15px;font-size:0.83333333333333rem;}.single .nav-links .nav-previous,.single .nav-links .nav-next,.single .ast-author-details .author-title,.ast-comment-meta{color:#5095fc;}.entry-meta,.entry-meta *{line-height:1.45;color:#5095fc;}.entry-meta a:hover,.entry-meta a:hover *,.entry-meta a:focus,.entry-meta a:focus *{color:#004093;}.ast-404-layout-1 .ast-404-text{font-size:200px;font-size:11.111111111111rem;}.widget-title{font-size:25px;font-size:1.3888888888889rem;color:rgba(0,0,0,0.73);}#cat option,.secondary .calendar_wrap thead a,.secondary .calendar_wrap thead a:visited{color:#5095fc;}.secondary .calendar_wrap #today,.ast-progress-val span{background:#5095fc;}.secondary a:hover + .post-count,.secondary a:focus + .post-count{background:#5095fc;border-color:#5095fc;}.calendar_wrap #today > a{color:#000000;}.ast-pagination a,.page-links .page-link,.single .post-navigation a{color:#5095fc;}.ast-pagination a:hover,.ast-pagination a:focus,.ast-pagination > span:hover:not(.dots),.ast-pagination > span.current,.page-links > .page-link,.page-links .page-link:hover,.post-navigation a:hover{color:#004093;}.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle{background:transparent;color:rgba(38,51,127,0.13);}.ast-header-break-point .ast-mobile-menu-buttons-outline.menu-toggle{background:transparent;border:1px solid rgba(38,51,127,0.13);color:rgba(38,51,127,0.13);}.ast-header-break-point .ast-mobile-menu-buttons-fill.menu-toggle{background:rgba(38,51,127,0.13);color:rgba(10,8,8,0.89);}.wp-block-buttons.aligncenter{justify-content:center;}@media (max-width:782px){.entry-content .wp-block-columns .wp-block-column{margin-left:0px;}}@media (max-width:768px){#secondary.secondary{padding-top:0;}.ast-separate-container .ast-article-post,.ast-separate-container .ast-article-single{padding:1.5em 2.14em;}.ast-separate-container #primary,.ast-separate-container #secondary{padding:1.5em 0;}.ast-separate-container.ast-right-sidebar #secondary{padding-left:1em;padding-right:1em;}.ast-separate-container.ast-two-container #secondary{padding-left:0;padding-right:0;}.ast-page-builder-template .entry-header #secondary{margin-top:1.5em;}.ast-page-builder-template #secondary{margin-top:1.5em;}#primary,#secondary{padding:1.5em 0;margin:0;}.ast-left-sidebar #content > .ast-container{display:flex;flex-direction:column-reverse;width:100%;}.ast-author-box img.avatar{margin:20px 0 0 0;}.ast-pagination{padding-top:1.5em;text-align:center;}.ast-pagination .next.page-numbers{display:inherit;float:none;}}@media (max-width:768px){.ast-page-builder-template.ast-left-sidebar #secondary{padding-right:20px;}.ast-page-builder-template.ast-right-sidebar #secondary{padding-left:20px;}.ast-right-sidebar #primary{padding-right:0;}.ast-right-sidebar #secondary{padding-left:0;}.ast-left-sidebar #primary{padding-left:0;}.ast-left-sidebar #secondary{padding-right:0;}.ast-pagination .prev.page-numbers{padding-left:.5em;}.ast-pagination .next.page-numbers{padding-right:.5em;}}@media (min-width:769px){.ast-separate-container.ast-right-sidebar #primary,.ast-separate-container.ast-left-sidebar #primary{border:0;}.ast-separate-container.ast-right-sidebar #secondary,.ast-separate-container.ast-left-sidebar #secondary{border:0;margin-left:auto;margin-right:auto;}.ast-separate-container.ast-two-container #secondary .widget:last-child{margin-bottom:0;}.ast-separate-container .ast-comment-list li .comment-respond{padding-left:2.66666em;padding-right:2.66666em;}.ast-author-box{-js-display:flex;display:flex;}.ast-author-bio{flex:1;}.error404.ast-separate-container #primary,.search-no-results.ast-separate-container #primary{margin-bottom:4em;}}@media (min-width:769px){.ast-right-sidebar #primary{border-right:1px solid #eee;}.ast-right-sidebar #secondary{border-left:1px solid #eee;margin-left:-1px;}.ast-left-sidebar #primary{border-left:1px solid #eee;}.ast-left-sidebar #secondary{border-right:1px solid #eee;margin-right:-1px;}.ast-separate-container.ast-two-container.ast-right-sidebar #secondary{padding-left:30px;padding-right:0;}.ast-separate-container.ast-two-container.ast-left-sidebar #secondary{padding-right:30px;padding-left:0;}}.elementor-button-wrapper .elementor-button{border-style:solid;border-top-width:1px;border-right-width:1px;border-left-width:1px;border-bottom-width:1px;}body .elementor-button.elementor-size-sm,body .elementor-button.elementor-size-xs,body .elementor-button.elementor-size-md,body .elementor-button.elementor-size-lg,body .elementor-button.elementor-size-xl,body .elementor-button{border-radius:0;padding-top:13px;padding-right:33px;padding-bottom:13px;padding-left:33px;}.elementor-button-wrapper .elementor-button{border-color:#8224e3;background-color:rgba(38,51,127,0.13);}.elementor-button-wrapper .elementor-button:hover,.elementor-button-wrapper .elementor-button:focus{color:#ffffff;background-color:rgba(46,128,221,0.84);border-color:#b5b5b5;}.wp-block-button .wp-block-button__link,.elementor-button-wrapper .elementor-button,.elementor-button-wrapper .elementor-button:visited{color:rgba(10,8,8,0.89);}.elementor-button-wrapper .elementor-button{font-family:inherit;font-weight:500;line-height:1;}body .elementor-button.elementor-size-sm,body .elementor-button.elementor-size-xs,body .elementor-button.elementor-size-md,body .elementor-button.elementor-size-lg,body .elementor-button.elementor-size-xl,body .elementor-button{font-size:14px;font-size:0.77777777777778rem;}.wp-block-button .wp-block-button__link{border-style:solid;border-top-width:1px;border-right-width:1px;border-left-width:1px;border-bottom-width:1px;border-color:#8224e3;background-color:rgba(38,51,127,0.13);color:rgba(10,8,8,0.89);font-family:inherit;font-weight:500;line-height:1;font-size:14px;font-size:0.77777777777778rem;border-radius:0;padding-top:13px;padding-right:33px;padding-bottom:13px;padding-left:33px;}.wp-block-button .wp-block-button__link:hover,.wp-block-button .wp-block-button__link:focus{color:#ffffff;background-color:rgba(46,128,221,0.84);border-color:#b5b5b5;}.elementor-widget-heading h1.elementor-heading-title{line-height:1;}.elementor-widget-heading h2.elementor-heading-title{line-height:3;}.elementor-widget-heading h3.elementor-heading-title{line-height:3;}.elementor-widget-heading h4.elementor-heading-title{line-height:1;}.elementor-widget-heading h5.elementor-heading-title{line-height:1;}.elementor-widget-heading h6.elementor-heading-title{line-height:1;}.menu-toggle,button,.ast-button,.ast-custom-button,.button,input#submit,input[type="button"],input[type="submit"],input[type="reset"]{border-style:solid;border-top-width:1px;border-right-width:1px;border-left-width:1px;border-bottom-width:1px;color:rgba(10,8,8,0.89);border-color:#8224e3;background-color:rgba(38,51,127,0.13);border-radius:0;padding-top:13px;padding-right:33px;padding-bottom:13px;padding-left:33px;font-family:inherit;font-weight:500;font-size:14px;font-size:0.77777777777778rem;line-height:1;}button:focus,.menu-toggle:hover,button:hover,.ast-button:hover,.button:hover,input[type=reset]:hover,input[type=reset]:focus,input#submit:hover,input#submit:focus,input[type="button"]:hover,input[type="button"]:focus,input[type="submit"]:hover,input[type="submit"]:focus{color:#ffffff;background-color:rgba(46,128,221,0.84);border-color:#b5b5b5;}@media (min-width:768px){.ast-container{max-width:100%;}}@media (min-width:544px){.ast-container{max-width:100%;}}@media (max-width:544px){.ast-separate-container .ast-article-post,.ast-separate-container .ast-article-single{padding:1.5em 1em;}.ast-separate-container #content .ast-container{padding-left:0.54em;padding-right:0.54em;}.ast-separate-container #secondary{padding-top:0;}.ast-separate-container.ast-two-container #secondary .widget{margin-bottom:1.5em;padding-left:1em;padding-right:1em;}.ast-separate-container .comments-count-wrapper{padding:1.5em 1em;}.ast-separate-container .ast-comment-list li.depth-1{padding:1.5em 1em;margin-bottom:1.5em;}.ast-separate-container .ast-comment-list .bypostauthor{padding:.5em;}.ast-separate-container .ast-archive-description{padding:1.5em 1em;}.ast-search-menu-icon.ast-dropdown-active .search-field{width:170px;}.ast-separate-container .comment-respond{padding:1.5em 1em;}}@media (max-width:544px){.ast-comment-list .children{margin-left:0.66666em;}.ast-separate-container .ast-comment-list .bypostauthor li{padding:0 0 0 .5em;}}@media (max-width:768px){.ast-mobile-header-stack .main-header-bar .ast-search-menu-icon{display:inline-block;}.ast-header-break-point.ast-header-custom-item-outside .ast-mobile-header-stack .main-header-bar .ast-search-icon{margin:0;}.ast-comment-avatar-wrap img{max-width:2.5em;}.comments-area{margin-top:1.5em;}.ast-separate-container .comments-count-wrapper{padding:2em 2.14em;}.ast-separate-container .ast-comment-list li.depth-1{padding:1.5em 2.14em;}.ast-separate-container .comment-respond{padding:2em 2.14em;}}@media (max-width:768px){.ast-header-break-point .main-header-bar .ast-search-menu-icon.slide-search .search-form{right:0;}.ast-header-break-point .ast-mobile-header-stack .main-header-bar .ast-search-menu-icon.slide-search .search-form{right:-1em;}.ast-comment-avatar-wrap{margin-right:0.5em;}}.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button,.ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button{font-family:inherit;font-weight:inherit;line-height:1;}.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button{color:#afafaf;background-color:rgba(124,124,124,0);padding-top:5px;padding-bottom:5px;padding-left:23px;padding-right:23px;border-style:solid;border-color:#afafaf;border-top-width:1px;border-right-width:1px;border-left-width:1px;border-bottom-width:1px;}.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover{color:#000000;border-color:#000000;}.ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button{color:#dbdbdb;background-color:rgba(96,96,96,0);padding-top:5px;padding-bottom:5px;padding-left:23px;padding-right:23px;border-style:solid;border-color:#dbdbdb;border-top-width:1px;border-right-width:1px;border-left-width:1px;border-bottom-width:1px;}.ast-theme-transparent-header .main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover{color:#ffffff;border-color:#ffffff;}@media (min-width:545px){.ast-page-builder-template .comments-area,.single.ast-page-builder-template .entry-header,.single.ast-page-builder-template .post-navigation{max-width:1440px;margin-left:auto;margin-right:auto;}}@media (max-width:768px){.ast-archive-description .ast-archive-title{font-size:40px;}.entry-title{font-size:30px;}h1,.entry-content h1{font-size:30px;}h2,.entry-content h2{font-size:37px;}h3,.entry-content h3{font-size:27px;}.ast-single-post .entry-title,.page-title{font-size:30px;}}@media (max-width:544px){.ast-archive-description .ast-archive-title{font-size:40px;}.entry-title{font-size:30px;}h1,.entry-content h1{font-size:40px;}h2,.entry-content h2{font-size:25px;}h3,.entry-content h3{font-size:24px;}.ast-single-post .entry-title,.page-title{font-size:30px;}}@media (max-width:768px){html{font-size:102.6%;}}@media (max-width:544px){html{font-size:102.6%;}}@media (min-width:769px){.ast-container{max-width:1440px;}}@font-face {font-family: "Astra";src: url(https://slaystudy.com/wp-content/themes/astra/assets/fonts/astra.woff) format("woff"),url(https://slaystudy.com/wp-content/themes/astra/assets/fonts/astra.ttf) format("truetype"),url(https://slaystudy.com/wp-content/themes/astra/assets/fonts/astra.svg#astra) format("svg");font-weight: normal;font-style: normal;font-display: fallback;}@media (max-width:921px) {.main-header-bar .main-header-bar-navigation{display:none;}}@media (min-width:769px){.blog .site-content > .ast-container,.archive .site-content > .ast-container,.search .site-content > .ast-container{max-width:1300px;}}@media (min-width:769px){.single-post .site-content > .ast-container{max-width:1300px;}}.ast-desktop .main-header-menu.submenu-with-border .sub-menu,.ast-desktop .main-header-menu.submenu-with-border .astra-full-megamenu-wrapper{border-color:#bedce8;}.ast-desktop .main-header-menu.submenu-with-border .sub-menu{border-top-width:2px;border-right-width:0px;border-left-width:0px;border-bottom-width:0px;border-style:solid;}.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu{top:-2px;}.ast-desktop .main-header-menu.submenu-with-border .sub-menu .menu-link,.ast-desktop .main-header-menu.submenu-with-border .children .menu-link{border-bottom-width:0px;border-style:solid;border-color:#eaeaea;}@media (min-width:769px){.main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu:hover > .sub-menu,.main-header-menu .sub-menu .menu-item.ast-left-align-sub-menu.focus > .sub-menu{margin-left:-0px;}}.ast-small-footer{border-top-style:solid;border-top-width:0;border-top-color:#7a7a7a;}.ast-small-footer-wrap{text-align:center;}@media (max-width:920px){.ast-404-layout-1 .ast-404-text{font-size:100px;font-size:5.5555555555556rem;}}.ast-breadcrumbs .trail-browse,.ast-breadcrumbs .trail-items,.ast-breadcrumbs .trail-items li{display:inline-block;margin:0;padding:0;border:none;background:inherit;text-indent:0;}.ast-breadcrumbs .trail-browse{font-size:inherit;font-style:inherit;font-weight:inherit;color:inherit;}.ast-breadcrumbs .trail-items{list-style:none;}.trail-items li::after{padding:0 0.3em;content:"\00bb";}.trail-items li:last-of-type::after{display:none;}h1,.entry-content h1,h2,.entry-content h2,h3,.entry-content h3,h4,.entry-content h4,h5,.entry-content h5,h6,.entry-content h6{color:#000000;}.ast-header-break-point .main-header-bar{border-bottom-width:0;}@media (min-width:769px){.main-header-bar{border-bottom-width:0;}}@media (min-width:769px){#primary{width:68%;}#secondary{width:32%;}}.ast-safari-browser-less-than-11 .main-header-menu .menu-item, .ast-safari-browser-less-than-11 .main-header-bar .ast-masthead-custom-menu-items{display:block;}.main-header-menu .menu-item, .main-header-bar .ast-masthead-custom-menu-items{-js-display:flex;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-moz-box-orient:vertical;-moz-box-direction:normal;-ms-flex-direction:column;flex-direction:column;}.main-header-menu > .menu-item > .menu-link{height:100%;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-js-display:flex;display:flex;}.ast-primary-menu-disabled .main-header-bar .ast-masthead-custom-menu-items{flex:unset;}.header-main-layout-1 .ast-flex.main-header-container, .header-main-layout-3 .ast-flex.main-header-container{-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;}
+</style>
+<link rel="stylesheet" id="astra-google-fonts-css" href="./Hierholzer&#39;s Algorithm _ SlayStudy_files/css" media="all">
+<link rel="stylesheet" id="astra-menu-animation-css" href="./Hierholzer&#39;s Algorithm _ SlayStudy_files/menu-animation.min.css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./Hierholzer&#39;s Algorithm _ SlayStudy_files/style.min(1).css" media="all">
+<link rel="stylesheet" id="astra-child-theme-css-css" href="./Hierholzer&#39;s Algorithm _ SlayStudy_files/style.css" media="all">
+<link rel="stylesheet" id="kadence-blocks-tabs-css" href="./Hierholzer&#39;s Algorithm _ SlayStudy_files/tabs.style.build.css" media="all">
+<style id="kt-blocks_6a07e1-c9-inline-css">
+.kt-tabs-id_6a07e1-c9 > .kt-tabs-content-wrap > .wp-block-kadence-tab {border-width:1px 1px 1px 1px;border-color:#bcbcbc;background:#ffffff;}.wp-block-kadence-tabs .kt-tabs-id_6a07e1-c9 > .kt-tabs-title-list li {margin:0px 8px -1px 0px;}.wp-block-kadence-tabs .kt-tabs-id_6a07e1-c9 > .kt-tabs-title-list li .kt-tab-title, .wp-block-kadence-tabs .kt-tabs-id_6a07e1-c9 > .kt-tabs-content-wrap > .kt-tabs-accordion-title .kt-tab-title {font-size:1.1em;line-height:1.4em;border-width:1px 1px 0px 1px ;border-radius:4px 4px 0px 0px ;padding:8px 20px 8px 20px ;border-color:#eeeeee;color:#444444;background:#ffffff;}.wp-block-kadence-tabs .kt-tabs-id_6a07e1-c9 > .kt-tabs-title-list li .kt-tab-title:hover, .wp-block-kadence-tabs .kt-tabs-id_6a07e1-c9 > .kt-tabs-content-wrap > .kt-tabs-accordion-title .kt-tab-title:hover {border-color:#e2e2e2;color:#444444;background:#ffffff;}.wp-block-kadence-tabs .kt-tabs-id_6a07e1-c9 > .kt-tabs-title-list li.kt-tab-title-active .kt-tab-title, .wp-block-kadence-tabs .kt-tabs-id_6a07e1-c9 > .kt-tabs-content-wrap > .kt-tabs-accordion-title.kt-tab-title-active .kt-tab-title  {border-color:#bcbcbc;color:#444444;background:#ffffff;}
+</style>
+<style id="kt-blocks_7bd105-99-inline-css">
+.kt-tabs-id_7bd105-99 > .kt-tabs-content-wrap > .wp-block-kadence-tab {border-width:1px 1px 1px 1px;border-color:#bcbcbc;background:#ffffff;}.wp-block-kadence-tabs .kt-tabs-id_7bd105-99 > .kt-tabs-title-list li {margin:0px 8px -1px 0px;}.wp-block-kadence-tabs .kt-tabs-id_7bd105-99 > .kt-tabs-title-list li .kt-tab-title, .wp-block-kadence-tabs .kt-tabs-id_7bd105-99 > .kt-tabs-content-wrap > .kt-tabs-accordion-title .kt-tab-title {font-size:1.1em;line-height:1.4em;border-width:1px 1px 0px 1px ;border-radius:4px 4px 0px 0px ;padding:8px 20px 8px 20px ;border-color:#eeeeee;color:#444444;background:#ffffff;}.wp-block-kadence-tabs .kt-tabs-id_7bd105-99 > .kt-tabs-title-list li .kt-tab-title:hover, .wp-block-kadence-tabs .kt-tabs-id_7bd105-99 > .kt-tabs-content-wrap > .kt-tabs-accordion-title .kt-tab-title:hover {border-color:#e2e2e2;color:#444444;background:#ffffff;}.wp-block-kadence-tabs .kt-tabs-id_7bd105-99 > .kt-tabs-title-list li.kt-tab-title-active .kt-tab-title, .wp-block-kadence-tabs .kt-tabs-id_7bd105-99 > .kt-tabs-content-wrap > .kt-tabs-accordion-title.kt-tab-title-active .kt-tab-title  {border-color:#bcbcbc;color:#444444;background:#ffffff;}
+</style>
+<link rel="stylesheet" id="enlighterjs-css" href="./Hierholzer&#39;s Algorithm _ SlayStudy_files/enlighterjs.min.css" media="all">
+<!--[if IE]>
+<script src='https://slaystudy.com/wp-content/themes/astra/assets/js/minified/flexibility.min.js?ver=2.6.2' id='astra-flexibility-js'></script>
+<script id='astra-flexibility-js-after'>
+flexibility(document.documentElement);
+</script>
+<![endif]-->
+<script id="monsterinsights-frontend-script-js-extra" src="data:text/javascript;base64,dmFyIG1vbnN0ZXJpbnNpZ2h0c19mcm9udGVuZD17ImpzX2V2ZW50c190cmFja2luZyI6InRydWUiLCJkb3dubG9hZF9leHRlbnNpb25zIjoiIiwiaW5ib3VuZF9wYXRocyI6IltdIiwiaG9tZV91cmwiOiJodHRwczpcL1wvc2xheXN0dWR5LmNvbSIsImhhc2hfdHJhY2tpbmciOiJmYWxzZSIsInVhIjoiVUEtMTY0OTM4MDI2LTEiLCJ2NF9pZCI6IiJ9" defer=""></script>
+<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/frontend-gtag.min.js.download" id="monsterinsights-frontend-script-js" defer="" data-deferred="1"></script>
+<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/jquery.min.js.download" id="jquery-core-js"></script>
+<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/jquery-migrate.min.js.download" id="jquery-migrate-js" defer="" data-deferred="1"></script>
+<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/wp-quicklatex-frontend.js.download" id="wp-quicklatex-frontend-js" defer="" data-deferred="1"></script>
+<link rel="https://api.w.org/" href="https://slaystudy.com/wp-json/"><link rel="alternate" type="application/json" href="https://slaystudy.com/wp-json/wp/v2/posts/4875"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://slaystudy.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://slaystudy.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.8.2">
+<link rel="shortlink" href="https://slaystudy.com/?p=4875">
+<link rel="alternate" type="application/json+oembed" href="https://slaystudy.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fslaystudy.com%2Fhierholzers-algorithm%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://slaystudy.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fslaystudy.com%2Fhierholzers-algorithm%2F&amp;format=xml">
+<style id="uagb-style-conditional-extension">@media (min-width: 1025px){body .uag-hide-desktop.uagb-google-map__wrap,body .uag-hide-desktop{display:none}}@media (min-width: 768px) and (max-width: 1024px){body .uag-hide-tab.uagb-google-map__wrap,body .uag-hide-tab{display:none}}@media (max-width: 767px){body .uag-hide-mob.uagb-google-map__wrap,body .uag-hide-mob{display:none}}</style><style id="kirki-inline-styles"></style><script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script></head>
+
+<body itemtype="https://schema.org/Blog" itemscope="itemscope" class="post-template-default single single-post postid-4875 single-format-standard ast-plain-container ast-right-sidebar astra-2.6.2 ast-header-custom-item-inside ast-blog-single-style-1 ast-single-post ast-mobile-inherit-site-logo ast-inherit-site-logo-transparent ast-normal-title-enabled ast-desktop ast-mouse-clicked" style="">
+
+<div class="hfeed site" id="page">
+	<a class="skip-link screen-reader-text" href="https://slaystudy.com/hierholzers-algorithm/#content">Skip to content</a>
+
+	
+	
+		<header class="site-header ast-primary-submenu-animation-fade header-main-layout-1 ast-primary-menu-enabled ast-logo-title-inline ast-menu-toggle-icon ast-mobile-header-inline" id="masthead" itemtype="https://schema.org/WPHeader" itemscope="itemscope" itemid="#masthead">
+
+			
+			
+<div class="main-header-bar-wrap">
+	<div class="main-header-bar">
+				<div class="ast-container">
+
+			<div class="ast-flex main-header-container">
+				
+		<div class="site-branding">
+			<div class="ast-site-identity" itemtype="https://schema.org/Organization" itemscope="itemscope">
+				<div class="ast-site-title-wrap">
+						<span class="site-title" itemprop="name">
+				<a href="https://slaystudy.com/" rel="home" itemprop="url">
+					SlayStudy
+				</a>
+			</span>
+						<p class="site-description" itemprop="description">
+				Learn Computer Science
+			</p>
+					</div>			</div>
+		</div>
+
+		<!-- .site-branding -->
+				<div class="ast-mobile-menu-buttons">
+
+			
+					<div class="ast-button-wrap">
+			<button type="button" class="menu-toggle main-header-menu-toggle ast-mobile-menu-buttons-fill" aria-controls="primary-menu" aria-expanded="false" data-index="0">
+				<span class="screen-reader-text">Main Menu</span>
+				<span class="menu-toggle-icon"></span>
+							</button>
+		</div>
+			
+			
+		</div>
+			<div class="ast-main-header-bar-alignment"><div class="main-header-bar-navigation"><nav class="ast-flex-grow-1 navigation-accessibility" id="site-navigation" aria-label="Site Navigation" itemtype="https://schema.org/SiteNavigationElement" itemscope="itemscope"><div class="main-navigation"><ul id="primary-menu" class="main-header-menu ast-nav-menu ast-flex ast-justify-content-flex-end  submenu-with-border astra-menu-animation-fade " aria-expanded="false"><li id="menu-item-4983" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4983"><a href="https://slaystudy.com/algorithms/" class="menu-link">Algorithms</a></li>
+<li id="menu-item-4982" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4982"><a href="https://slaystudy.com/data-structures/" class="menu-link">Data Structures</a></li>
+<li id="menu-item-5330" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5330"><a href="https://slaystudy.com/coding-questions/" class="menu-link">Coding Questions</a></li>
+<li id="menu-item-4981" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4981"><a href="https://slaystudy.com/graph-theory/" class="menu-link">Graph Theory</a></li>
+<li id="menu-item-6800" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6800"><a href="https://slaystudy.com/write-for-us/" class="menu-link">Hiring</a></li>
+<li id="menu-item-4089" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4089"><a href="https://slaystudy.com/contact-us/" class="menu-link">Contact</a></li>
+</ul></div></nav></div></div>			</div><!-- Main Header Container -->
+		</div><!-- ast-row -->
+			</div> <!-- Main Header Bar -->
+</div> <!-- Main Header Bar Wrap -->
+
+			
+		</header><!-- #masthead -->
+
+		
+	
+	
+	<div id="content" class="site-content">
+
+		<div class="ast-container">
+
+		
+
+	<div id="primary" class="content-area primary">
+
+		
+					<main id="main" class="site-main">
+
+				
+					
+					
+
+<article class="post-4875 post type-post status-publish format-standard hentry category-algorithm category-graph ast-article-single" id="post-4875" itemtype="https://schema.org/CreativeWork" itemscope="itemscope">
+
+	
+	
+<div class="ast-post-format- ast-no-thumb single-layout-1">
+
+	
+	<header class="entry-header ast-no-thumbnail">
+
+		
+				<div class="ast-single-post-order">
+			<h1 class="entry-title" itemprop="headline">Hierholzer’s Algorithm</h1><div class="entry-meta">			<span class="comments-link">
+				<a href="https://slaystudy.com/hierholzers-algorithm/#comments">1 Comment</a>			</span>
+
+			 / <span class="cat-links"><a href="https://slaystudy.com/category/algorithm/" rel="category tag">Algorithm</a>, <a href="https://slaystudy.com/category/discrete-mathematics/graph/" rel="category tag">Graph</a></span></div>		</div>
+		
+		
+	</header><!-- .entry-header -->
+
+	
+	<div class="entry-content clear" itemprop="text">
+
+		
+		
+<p>Hierholzer’s algorithm is another algorithm to find the Euler Path or Euler circuit in a graph. <a href="https://slaystudy.com/fleurys-algorithm/">Fleury’s algorithm</a> can also print the Euler Path in a graph but its time complexity is <img loading="lazy" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/quicklatex.com-198e0ae605d3b1b9e0ae0a65249e57b4_l3.svg" class="ql-img-inline-formula quicklatex-auto-format" alt="O(E^2)" title="Rendered by QuickLaTeX.com" height="22" width="54" style="vertical-align: -5px;">. Hierholzer’s algorithm can find Euler Path in linear time, <img loading="lazy" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/quicklatex.com-d23a2086e09748108fef0d44007f4da5_l3.svg" class="ql-img-inline-formula quicklatex-auto-format" alt="O(E)" title="Rendered by QuickLaTeX.com" height="20" width="46" style="vertical-align: -5px;">.</p>
+
+
+
+<h2>How it works?</h2>
+
+
+
+<p>Suppose a graph G containing an Euler Circuit.</p>
+
+
+
+<p>If we randomly traverse the graph without repeating edges, we will eventually end up on the same vertex <strong>BUT</strong> the path taken may or may not include all the edges. For example,</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><img loading="lazy" width="757" height="268" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/Hierholzer-example-1.png" alt="circuit in a euler graph" class="wp-image-4908" srcset="https://slaystudy.com/wp-content/uploads/2020/07/Hierholzer-example-1.png 757w, https://slaystudy.com/wp-content/uploads/2020/07/Hierholzer-example-1-300x106.png 300w" sizes="(max-width: 757px) 100vw, 757px"></figure></div>
+
+
+
+<p>Suppose we traverse the above graph from v1. After some time, we reach v1 again. All edges attached to v1 are visited. We cannot proceed ahead. We found a circuit. But the circuit is not Euler Circuit as all edges are not visited.</p>
+
+
+
+<p><em>Circuit: 1-2-3-4-5-6-1</em></p>
+
+
+
+<p>Remove visited edges from the graph.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><img loading="lazy" width="337" height="268" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/Hierholzer-example-2-2.png" alt="remove visited edges from the above graph" class="wp-image-4909" srcset="https://slaystudy.com/wp-content/uploads/2020/07/Hierholzer-example-2-2.png 337w, https://slaystudy.com/wp-content/uploads/2020/07/Hierholzer-example-2-2-300x239.png 300w" sizes="(max-width: 337px) 100vw, 337px"></figure></div>
+
+
+
+<p>After removing the edges, the graph is now split into many components. You may have noticed that all the components contain Euler Circuit. This is because a graph is Euler if it contains all even degree vertices. The degree of every vertex in a cycle is also even. The degree of vertices after removing a cycle remains even.</p>
+
+
+
+<p>After that, we find a new Euler Circuit in components with more than one vertex. The new circuit must start from a vertex which was part of the previous cycles, i.e., from <strong>v2 or v6</strong>.</p>
+
+
+
+<p>Let v6 be the starting vertex. The Euler circuit is 6-7-2-6.</p>
+
+
+
+<p>Now, we have 2 Euler circuits,</p>
+
+
+
+<ul><li>1-2-3-4-5-6-1</li><li>6-7-2-6</li></ul>
+
+
+
+<p>On combining them, we get 1-2-3-4-5-(6-7-2-6)-1</p>
+
+
+
+<p>In this way, we keep finding and combining the Euler Circuits until all the edges are removed from the graph.</p>
+
+
+
+<p><strong>Note:</strong> The logic to find Euler Path is similar. The only difference is we must start from an odd degree vertex.</p>
+
+
+
+<h2>Steps</h2>
+
+
+
+<ol><li>First, make sure that the input graph G is connected and contains exactly 0 or 2 odd degree vertices.</li><li>Initialize 2 stack. The first stack will store the temporary Euler Path – let’s call it cpath. The second stack will store the final Euler path – let’s call it epath.</li><li>Let the starting vertex be <em>v</em>. If the graph contains exactly 2 odd degree vertices then one of them should be the starting vertex. If the graph contains exactly 0 odd degree vertices then any vertex can be starting vertex.</li><li>Push <em>v</em> to cpath.</li><li>Let <em>u</em> = cpath.TOP.</li><li>If all the edges from <em>u</em> are visited, pop <em>u</em> from cpath and push it to epath.</li><li>If all edges from u are not visited, select any random edge (u, x). Push x to cpath and delete the edge (u, x) from G.</li><li>Repeat steps 5 to 7 until cpath is empty.</li></ol>
+
+
+
+<p>The final Euler path will be saved in epath.</p>
+
+
+
+<p>Let’s discuss what exactly we are doing in the above steps. Basically, we are doing a depth-first search on the graph but instead of immediately removing the vertices from the stack, we pop the vertices from the stack only if all the edges from that vertex are visited. </p>
+
+
+
+<p>By doing so, we are basically finding the simple circuits in the graph and combining them into a single big circuit.</p>
+
+
+
+<p>If you are still confused about why the algorithm works, read the <strong><em>How it Works?</em></strong> section again and perform the algorithm on the graph in that section. Also, feel free to comment.</p>
+
+
+
+<h2>Step by Step Example</h2>
+
+
+
+<p>We will perform Hierholzer’s Algorithm step by step on the graph below.</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="271" height="241" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/diagram-1-1.png" alt="Hierholzer&#39;s Algorithm
+Input graph" class="wp-image-4888"></figure>
+
+
+
+<ol><li>Initialize 2 stack – cpath and epath.</li><li>Since the graph contains no odd degree vertices. Any vertex can be a starting vertex. Let the starting vertex be 1.</li><li>Push 1 to cpath.</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="511" height="251" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/diagram-2-2.png" alt="graph 2" class="wp-image-4889" srcset="https://slaystudy.com/wp-content/uploads/2020/07/diagram-2-2.png 511w, https://slaystudy.com/wp-content/uploads/2020/07/diagram-2-2-300x147.png 300w" sizes="(max-width: 511px) 100vw, 511px"></figure>
+
+
+
+<ol><li>The top of cpath is 1.</li><li>Choose any edge from 1.</li><li>Let (1, 2) be the chosen edge.</li><li>Push 2 to cpath.</li><li>Delete edge (1, 2) from the graph.</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="511" height="251" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/diagram-3-1.png" alt="graph 3" class="wp-image-4890" srcset="https://slaystudy.com/wp-content/uploads/2020/07/diagram-3-1.png 511w, https://slaystudy.com/wp-content/uploads/2020/07/diagram-3-1-300x147.png 300w" sizes="(max-width: 511px) 100vw, 511px"></figure>
+
+
+
+<ol id="block-5cadf6dd-1e90-45d6-bf06-dd5cdd1e3aa0"><li>The top of cpath is 2.</li><li>Choose any edge from 2.</li><li>Let (2, 3) be the chosen edge.</li><li>Push 3 to cpath.</li><li>Delete edge (2, 3) from the graph.</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="511" height="251" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/diagram-4-1.png" alt="graph 4" class="wp-image-4891" srcset="https://slaystudy.com/wp-content/uploads/2020/07/diagram-4-1.png 511w, https://slaystudy.com/wp-content/uploads/2020/07/diagram-4-1-300x147.png 300w" sizes="(max-width: 511px) 100vw, 511px"></figure>
+
+
+
+<ol id="block-5cadf6dd-1e90-45d6-bf06-dd5cdd1e3aa0"><li>The top of cpath is 3.</li><li>Choose any edge from 3.</li><li>Let (3, 6) be the chosen edge.</li><li>Push 6 to cpath.</li><li>Delete edge (3, 6) from the graph.</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="511" height="251" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/diagram-5.png" alt="graph 5" class="wp-image-4892" srcset="https://slaystudy.com/wp-content/uploads/2020/07/diagram-5.png 511w, https://slaystudy.com/wp-content/uploads/2020/07/diagram-5-300x147.png 300w" sizes="(max-width: 511px) 100vw, 511px"></figure>
+
+
+
+<ol id="block-5cadf6dd-1e90-45d6-bf06-dd5cdd1e3aa0"><li>The top of cpath is 6.</li><li>Choose any edge from 6.</li><li>Let (6, 1) be the chosen edge.</li><li>Push 1 to cpath.</li><li>Delete edge (6, 1) from the graph.</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="511" height="251" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/diagram-6-1.png" alt="graph 6" class="wp-image-4894" srcset="https://slaystudy.com/wp-content/uploads/2020/07/diagram-6-1.png 511w, https://slaystudy.com/wp-content/uploads/2020/07/diagram-6-1-300x147.png 300w" sizes="(max-width: 511px) 100vw, 511px"></figure>
+
+
+
+<ol id="block-5cadf6dd-1e90-45d6-bf06-dd5cdd1e3aa0"><li>The top of cpath is 1.</li><li>Choose any edge from 1.</li><li>No edge is attached to 1.</li><li>Pop 1 from cpath.</li><li>Push 1 to epath.</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="511" height="251" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/diagram-7-1.png" alt="graph 7" class="wp-image-4896" srcset="https://slaystudy.com/wp-content/uploads/2020/07/diagram-7-1.png 511w, https://slaystudy.com/wp-content/uploads/2020/07/diagram-7-1-300x147.png 300w" sizes="(max-width: 511px) 100vw, 511px"></figure>
+
+
+
+<ol id="block-ab803515-8705-4f87-afa2-2e38ac7c61b5"><li>The top of cpath is 6.</li><li>Choose any edge from 6.</li><li>No edge is attached to 6.</li><li>Pop 6 from cpath.</li><li>Push 6 to epath.</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="511" height="251" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/diagram-8.png" alt="graph 8" class="wp-image-4897" srcset="https://slaystudy.com/wp-content/uploads/2020/07/diagram-8.png 511w, https://slaystudy.com/wp-content/uploads/2020/07/diagram-8-300x147.png 300w" sizes="(max-width: 511px) 100vw, 511px"></figure>
+
+
+
+<ol id="block-ab803515-8705-4f87-afa2-2e38ac7c61b5"><li>The top of cpath is 3.</li><li>Choose any edge from 3.</li><li>No edge is attached to 3.</li><li>Pop 3 from cpath.</li><li>Push 3 to epath.</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="511" height="251" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/diagram-9.png" alt="graph 9" class="wp-image-4898" srcset="https://slaystudy.com/wp-content/uploads/2020/07/diagram-9.png 511w, https://slaystudy.com/wp-content/uploads/2020/07/diagram-9-300x147.png 300w" sizes="(max-width: 511px) 100vw, 511px"></figure>
+
+
+
+<ol id="block-9df17eae-83db-438e-ab8c-387d97d9dffa"><li>The top of cpath is 2.</li><li>Choose any edge from 2.</li><li>Let (2, 4) be the chosen edge.</li><li>Push 4 to cpath.</li><li>Delete edge (2, 4) from the graph.</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="511" height="251" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/diagram-10.png" alt="graph 10" class="wp-image-4899" srcset="https://slaystudy.com/wp-content/uploads/2020/07/diagram-10.png 511w, https://slaystudy.com/wp-content/uploads/2020/07/diagram-10-300x147.png 300w" sizes="(max-width: 511px) 100vw, 511px"></figure>
+
+
+
+<ol id="block-9df17eae-83db-438e-ab8c-387d97d9dffa"><li>The top of cpath is 4.</li><li>Choose any edge from 4.</li><li>Let (4, 5) be the chosen edge.</li><li>Push 5 to cpath.</li><li>Delete edge (4, 5) from the graph.</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="511" height="251" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/diagram-11.png" alt="graph 11" class="wp-image-4900" srcset="https://slaystudy.com/wp-content/uploads/2020/07/diagram-11.png 511w, https://slaystudy.com/wp-content/uploads/2020/07/diagram-11-300x147.png 300w" sizes="(max-width: 511px) 100vw, 511px"></figure>
+
+
+
+<ol id="block-9df17eae-83db-438e-ab8c-387d97d9dffa"><li>The top of cpath is 5.</li><li>Choose any edge from 5.</li><li>Let (5, 2) be the chosen edge.</li><li>Push 2 to cpath.</li><li>Delete edge (5, 2) from the graph.</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="511" height="251" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/diagram-12.png" alt="graph 12" class="wp-image-4901" srcset="https://slaystudy.com/wp-content/uploads/2020/07/diagram-12.png 511w, https://slaystudy.com/wp-content/uploads/2020/07/diagram-12-300x147.png 300w" sizes="(max-width: 511px) 100vw, 511px"></figure>
+
+
+
+<p>No edge is left in the graph so the algorithm will simply pop all vertices from cpath and push them to epath.</p>
+
+
+
+<p>FInal epath: <strong>1-6-3-2-5-4-2-1</strong> is an Euler Circuit in the given graph.</p>
+
+
+
+<figure class="wp-block-image size-large"><img loading="lazy" width="271" height="241" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/Untitled-Diagram.png" alt="Euler circuit in the input graph" class="wp-image-4902"></figure>
+
+
+
+<h2>Program for Undirected Graph</h2>
+
+
+
+<p><em><strong>Note:</strong> The graph in the above example is taken as the input</em></p>
+
+
+
+<div class="wp-block-kadence-tabs alignnone"><div class="kt-tabs-wrap kt-tabs-id_6a07e1-c9 kt-tabs-has-1-tabs kt-active-tab-1 kt-tabs-layout-tabs kt-tabs-tablet-layout-inherit kt-tabs-mobile-layout-inherit kt-tab-alignment-left " style="max-width:none"><ul class="kt-tabs-title-list" role="tablist"><li id="tab-c" class="kt-title-item kt-title-item-1 kt-tabs-svg-show-always kt-tabs-icon-side-right kt-tab-title-active" role="presentation"><a href="https://slaystudy.com/hierholzers-algorithm/#tab-c" data-tab="1" class="kt-tab-title kt-tab-title-1 " role="tab" aria-selected="true" tabindex="0"><span class="kt-title-text">C++</span></a></li></ul><div class="kt-tabs-content-wrap">
+<div class="wp-block-kadence-tab kt-tab-inner-content kt-inner-tab-1 kt-inner-tab_7a984c-1b" role="tabpanel" aria-hidden="false" aria-labelledby="tab-c"><div class="kt-tab-inner-content-inner">
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-overflow-scroll "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-k4">#include&lt;iostream&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k4">#include&lt;vector&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k4">#include&lt;stack&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k4">#include&lt;unordered_map&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">using</span><span class="enlighter-text"> </span><span class="enlighter-k0">namespace</span><span class="enlighter-text"> std;</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">class</span><span class="enlighter-text"> Graph</span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k5">int</span><span class="enlighter-text"> vertex;</span><span class="enlighter-c0"> // number of vertices</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // adjacency list</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // we are using unordered_map to speed up the deletion of edges</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    vector</span><span class="enlighter-g1">&lt;</span><span class="enlighter-text">unordered_map</span><span class="enlighter-g1">&lt;</span><span class="enlighter-k5">int</span><span class="enlighter-text">,</span><span class="enlighter-k5">int</span><span class="enlighter-g1">&gt;&gt;</span><span class="enlighter-text"> adj;</span></div></div><div class=""><div><span class="enlighter-text">    </span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k0">public</span><span class="enlighter-text">:</span></div></div><div class=""><div><span class="enlighter-text">        </span></div></div><div class=""><div><span class="enlighter-text">       </span><span class="enlighter-c0"> // constructor to initialize graph</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">       </span><span class="enlighter-c0"> // set number of vertices to v</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">       </span><span class="enlighter-c0"> // initialize adjacency map for v nodes</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-m0">Graph</span><span class="enlighter-g1">(</span><span class="enlighter-k5">int</span><span class="enlighter-text"> v</span><span class="enlighter-g1">){</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            vertex = v;</span></div></div><div class=""><div><span class="enlighter-text">            adj = vector</span><span class="enlighter-g1">&lt;</span><span class="enlighter-text">unordered_map</span><span class="enlighter-g1">&lt;</span><span class="enlighter-k5">int</span><span class="enlighter-text">,</span><span class="enlighter-k5">int</span><span class="enlighter-g1">&gt;&gt;(</span><span class="enlighter-text">v+1</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span></div></div><div class=""><div><span class="enlighter-text">       </span><span class="enlighter-c0"> // add edge (u, v) to graph</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k5">void</span><span class="enlighter-text"> </span><span class="enlighter-m0">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-k5">int</span><span class="enlighter-text"> u, </span><span class="enlighter-k5">int</span><span class="enlighter-text"> v</span><span class="enlighter-g1">){</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">u</span><span class="enlighter-g1">][</span><span class="enlighter-text">v</span><span class="enlighter-g1">]</span><span class="enlighter-text"> = 1;</span></div></div><div class=""><div><span class="enlighter-text">            adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">v</span><span class="enlighter-g1">][</span><span class="enlighter-text">u</span><span class="enlighter-g1">]</span><span class="enlighter-text"> = 1;</span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span></div></div><div class=""><div><span class="enlighter-text">       </span><span class="enlighter-c0"> // remove edge (u, v) from the graph</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k5">void</span><span class="enlighter-text"> </span><span class="enlighter-m0">removeEdge</span><span class="enlighter-g1">(</span><span class="enlighter-k5">int</span><span class="enlighter-text"> v,</span><span class="enlighter-k5">int</span><span class="enlighter-text"> u</span><span class="enlighter-g1">){</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">v</span><span class="enlighter-g1">]</span><span class="enlighter-text">.</span><span class="enlighter-m3">erase</span><span class="enlighter-g1">(</span><span class="enlighter-text">u</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">u</span><span class="enlighter-g1">]</span><span class="enlighter-text">.</span><span class="enlighter-m3">erase</span><span class="enlighter-g1">(</span><span class="enlighter-text">v</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span></div></div><div class=""><div><span class="enlighter-text">       </span><span class="enlighter-c0"> // function checks if the graph contains a euler path/circuit or not</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">       </span><span class="enlighter-c0"> // if the graph is valid, then it calls another function printEuler()</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">       </span><span class="enlighter-c0"> // to print Euler Path or circuit</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k5">void</span><span class="enlighter-text"> </span><span class="enlighter-m0">printEulerPathCircuit</span><span class="enlighter-g1">(){</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k5">int</span><span class="enlighter-text"> odd = 0;</span><span class="enlighter-c0"> // number of vertices with odd degree</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k5">int</span><span class="enlighter-text"> oddVertex = 0;</span><span class="enlighter-c0"> // it stores vertex with odd degree if it exists</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k1">for</span><span class="enlighter-g1">(</span><span class="enlighter-k5">int</span><span class="enlighter-text"> i=1;i</span><span class="enlighter-g1">&lt;</span><span class="enlighter-text">=vertex;++i</span><span class="enlighter-g1">){</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-k1">if</span><span class="enlighter-g1">(</span><span class="enlighter-text">adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">i</span><span class="enlighter-g1">]</span><span class="enlighter-text">.</span><span class="enlighter-m3">size</span><span class="enlighter-g1">()</span><span class="enlighter-text">%2==1</span><span class="enlighter-g1">){</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                    ++odd;</span></div></div><div class=""><div><span class="enlighter-text">                    oddVertex = i;</span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k1">if</span><span class="enlighter-g1">(</span><span class="enlighter-text">odd==0</span><span class="enlighter-g1">){</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">               </span><span class="enlighter-c0"> // if the number of odd degree vertices is 0</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">               </span><span class="enlighter-c0"> // the graph contains a Euler Circuit</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">               </span><span class="enlighter-c0"> // we can use any vertex as the starting vertex</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                cout</span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-s0">"Euler Circuit: "</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">               </span><span class="enlighter-c0"> // print euler circuit with '1' as the starting vertex</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-m0">printEuler</span><span class="enlighter-g1">(</span><span class="enlighter-text">1</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k1">else</span><span class="enlighter-text"> </span><span class="enlighter-k1">if</span><span class="enlighter-g1">(</span><span class="enlighter-text">odd==2</span><span class="enlighter-g1">){</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">               </span><span class="enlighter-c0"> // if the number of odd degree vertices is 0</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">               </span><span class="enlighter-c0"> // the graph contains a Euler Path</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">               </span><span class="enlighter-c0"> // starting vertex should be of odd degree</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                cout</span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-s0">"Euler Path: "</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-m0">printEuler</span><span class="enlighter-g1">(</span><span class="enlighter-text">oddVertex</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k1">else</span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                cout</span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-s0">"Euler Path/Circuit Doesn't Exist"</span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-text">endl;</span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span></div></div><div class=""><div><span class="enlighter-text">       </span><span class="enlighter-c0"> // the function to print euler path or circuit</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k5">void</span><span class="enlighter-text"> </span><span class="enlighter-m0">printEuler</span><span class="enlighter-g1">(</span><span class="enlighter-k5">int</span><span class="enlighter-text"> v</span><span class="enlighter-g1">){</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span></div></div><div class=""><div><span class="enlighter-text">            stack</span><span class="enlighter-g1">&lt;</span><span class="enlighter-k5">int</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"> cpath;   </span><span class="enlighter-c0"> // current path</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            stack</span><span class="enlighter-g1">&lt;</span><span class="enlighter-k5">int</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"> epath;   </span><span class="enlighter-c0"> // euler path</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span></div></div><div class=""><div><span class="enlighter-text">            cpath.</span><span class="enlighter-m3">push</span><span class="enlighter-g1">(</span><span class="enlighter-text">v</span><span class="enlighter-g1">)</span><span class="enlighter-text">;       </span><span class="enlighter-c0"> // euler path starts from v</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k1">while</span><span class="enlighter-g1">(</span><span class="enlighter-text">!cpath.</span><span class="enlighter-m3">empty</span><span class="enlighter-g1">()){</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-k5">int</span><span class="enlighter-text"> u = cpath.</span><span class="enlighter-m3">top</span><span class="enlighter-g1">()</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">                </span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-k1">if</span><span class="enlighter-g1">(</span><span class="enlighter-text">adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">u</span><span class="enlighter-g1">]</span><span class="enlighter-text">.</span><span class="enlighter-m3">size</span><span class="enlighter-g1">()</span><span class="enlighter-text">==0</span><span class="enlighter-g1">){</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                   </span><span class="enlighter-c0"> // if all edges from u are visited</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                   </span><span class="enlighter-c0"> // pop u and push it to euler path    </span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                    epath.</span><span class="enlighter-m3">push</span><span class="enlighter-g1">(</span><span class="enlighter-text">u</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">                    cpath.</span><span class="enlighter-m3">pop</span><span class="enlighter-g1">()</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-k1">else</span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                   </span><span class="enlighter-c0"> // if all edges from u are not visited</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                   </span><span class="enlighter-c0"> // select any edge (u, v)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                   </span><span class="enlighter-c0"> // push v to current path and remove edge (u, v) from the graph</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                    cpath.</span><span class="enlighter-m3">push</span><span class="enlighter-g1">(</span><span class="enlighter-text">adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">u</span><span class="enlighter-g1">]</span><span class="enlighter-text">.</span><span class="enlighter-m3">begin</span><span class="enlighter-g1">()</span><span class="enlighter-text">-</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">first</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">                    </span><span class="enlighter-m0">removeEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">u,adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">u</span><span class="enlighter-g1">]</span><span class="enlighter-text">.</span><span class="enlighter-m3">begin</span><span class="enlighter-g1">()</span><span class="enlighter-text">-</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">first</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-g1">}</span><span class="enlighter-text">    </span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k1">while</span><span class="enlighter-g1">(</span><span class="enlighter-text">!epath.</span><span class="enlighter-m3">empty</span><span class="enlighter-g1">()){</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                cout</span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-s0">" "</span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-text">epath.</span><span class="enlighter-m3">top</span><span class="enlighter-g1">()&lt;&lt;</span><span class="enlighter-s0">" "</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">                epath.</span><span class="enlighter-m3">pop</span><span class="enlighter-g1">()</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k5">int</span><span class="enlighter-text"> </span><span class="enlighter-m0">main</span><span class="enlighter-g1">()</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // graph G, containing 6 vertices from 1 to 6.</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    Graph </span><span class="enlighter-m0">G</span><span class="enlighter-g1">(</span><span class="enlighter-text">6</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // adding edges to the graph</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // this graph is same as the graph we used in the above example</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // we are assuming graph is connected and undirected</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">1, 6</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">6, 3</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">3, 2</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">2, 1</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">2, 5</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">5, 4</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">4, 2</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // function to print Euler Path or Euler Circuit</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">printEulerPathCircuit</span><span class="enlighter-g1">()</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span></div></div></div><div class="enlighter-raw">#include&lt;iostream&gt;
+#include&lt;vector&gt;
+#include&lt;stack&gt;
+#include&lt;unordered_map&gt;
+using namespace std;
+
+class Graph{
+    
+    int vertex; // number of vertices
+    // adjacency list
+    // we are using unordered_map to speed up the deletion of edges
+    vector&lt;unordered_map&lt;int,int&gt;&gt; adj;
+    
+    public:
+        
+        // constructor to initialize graph
+        // set number of vertices to v
+        // initialize adjacency map for v nodes
+        Graph(int v){
+            vertex = v;
+            adj = vector&lt;unordered_map&lt;int,int&gt;&gt;(v+1);
+        }
+        
+        // add edge (u, v) to graph
+        void addEdge(int u, int v){
+            adj[u][v] = 1;
+            adj[v][u] = 1;
+        }
+        
+        // remove edge (u, v) from the graph
+        void removeEdge(int v,int u){
+            adj[v].erase(u);
+            adj[u].erase(v);
+        }
+        
+        // function checks if the graph contains a euler path/circuit or not
+        // if the graph is valid, then it calls another function printEuler()
+        // to print Euler Path or circuit
+        void printEulerPathCircuit(){
+            
+            int odd = 0; // number of vertices with odd degree
+            int oddVertex = 0; // it stores vertex with odd degree if it exists
+            
+            for(int i=1;i&lt;=vertex;++i){
+                if(adj[i].size()%2==1){
+                    ++odd;
+                    oddVertex = i;
+                }
+            }
+            
+            if(odd==0){
+                // if the number of odd degree vertices is 0
+                // the graph contains a Euler Circuit
+                // we can use any vertex as the starting vertex
+                cout&lt;&lt;"Euler Circuit: ";
+                // print euler circuit with '1' as the starting vertex
+                printEuler(1);
+            }
+            else if(odd==2){
+                // if the number of odd degree vertices is 0
+                // the graph contains a Euler Path
+                // starting vertex should be of odd degree
+                cout&lt;&lt;"Euler Path: ";
+                printEuler(oddVertex);
+            }
+            else{
+                cout&lt;&lt;"Euler Path/Circuit Doesn't Exist"&lt;&lt;endl;
+            }
+            
+        }
+        
+        // the function to print euler path or circuit
+        void printEuler(int v){
+            
+            stack&lt;int&gt; cpath;    // current path
+            stack&lt;int&gt; epath;    // euler path
+            
+            cpath.push(v);        // euler path starts from v
+            
+            while(!cpath.empty()){
+                int u = cpath.top();
+                
+                if(adj[u].size()==0){
+                    // if all edges from u are visited
+                    // pop u and push it to euler path    
+                    epath.push(u);
+                    cpath.pop();
+                }
+                else{
+                    // if all edges from u are not visited
+                    // select any edge (u, v)
+                    // push v to current path and remove edge (u, v) from the graph
+                    cpath.push(adj[u].begin()-&gt;first);
+                    removeEdge(u,adj[u].begin()-&gt;first);
+                }    
+            }
+            
+            while(!epath.empty()){
+                cout&lt;&lt;" "&lt;&lt;epath.top()&lt;&lt;" ";
+                epath.pop();
+            }
+            
+        }
+        
+};
+
+int main()
+{
+    // graph G, containing 6 vertices from 1 to 6.
+    Graph G(6);
+    
+    // adding edges to the graph
+    // this graph is same as the graph we used in the above example
+    // we are assuming graph is connected and undirected
+    G.addEdge(1, 6);
+    G.addEdge(6, 3);
+    G.addEdge(3, 2);
+    G.addEdge(2, 1);
+    G.addEdge(2, 5);
+    G.addEdge(5, 4);
+    G.addEdge(4, 2);
+    
+    // function to print Euler Path or Euler Circuit
+    G.printEulerPathCircuit();
+}</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="cpp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">#include&lt;iostream&gt;
+#include&lt;vector&gt;
+#include&lt;stack&gt;
+#include&lt;unordered_map&gt;
+using namespace std;
+
+class Graph{
+	
+	int vertex; // number of vertices
+	// adjacency list
+	// we are using unordered_map to speed up the deletion of edges
+	vector&lt;unordered_map&lt;int,int&gt;&gt; adj;
+	
+	public:
+		
+		// constructor to initialize graph
+		// set number of vertices to v
+		// initialize adjacency map for v nodes
+		Graph(int v){
+			vertex = v;
+			adj = vector&lt;unordered_map&lt;int,int&gt;&gt;(v+1);
+		}
+		
+		// add edge (u, v) to graph
+		void addEdge(int u, int v){
+			adj[u][v] = 1;
+			adj[v][u] = 1;
+		}
+		
+		// remove edge (u, v) from the graph
+		void removeEdge(int v,int u){
+			adj[v].erase(u);
+			adj[u].erase(v);
+		}
+		
+		// function checks if the graph contains a euler path/circuit or not
+		// if the graph is valid, then it calls another function printEuler()
+		// to print Euler Path or circuit
+		void printEulerPathCircuit(){
+			
+			int odd = 0; // number of vertices with odd degree
+			int oddVertex = 0; // it stores vertex with odd degree if it exists
+			
+			for(int i=1;i&lt;=vertex;++i){
+				if(adj[i].size()%2==1){
+					++odd;
+					oddVertex = i;
+				}
+			}
+			
+			if(odd==0){
+				// if the number of odd degree vertices is 0
+				// the graph contains a Euler Circuit
+				// we can use any vertex as the starting vertex
+				cout&lt;&lt;"Euler Circuit: ";
+				// print euler circuit with '1' as the starting vertex
+				printEuler(1);
+			}
+			else if(odd==2){
+				// if the number of odd degree vertices is 0
+				// the graph contains a Euler Path
+				// starting vertex should be of odd degree
+				cout&lt;&lt;"Euler Path: ";
+				printEuler(oddVertex);
+			}
+			else{
+				cout&lt;&lt;"Euler Path/Circuit Doesn't Exist"&lt;&lt;endl;
+			}
+			
+		}
+		
+		// the function to print euler path or circuit
+		void printEuler(int v){
+			
+			stack&lt;int&gt; cpath;	// current path
+			stack&lt;int&gt; epath;	// euler path
+			
+			cpath.push(v);		// euler path starts from v
+			
+			while(!cpath.empty()){
+				int u = cpath.top();
+				
+				if(adj[u].size()==0){
+					// if all edges from u are visited
+					// pop u and push it to euler path	
+					epath.push(u);
+					cpath.pop();
+				}
+				else{
+					// if all edges from u are not visited
+					// select any edge (u, v)
+					// push v to current path and remove edge (u, v) from the graph
+					cpath.push(adj[u].begin()-&gt;first);
+					removeEdge(u,adj[u].begin()-&gt;first);
+				}	
+			}
+			
+			while(!epath.empty()){
+				cout&lt;&lt;" "&lt;&lt;epath.top()&lt;&lt;" ";
+				epath.pop();
+			}
+			
+		}
+		
+};
+
+int main()
+{
+	// graph G, containing 6 vertices from 1 to 6.
+	Graph G(6);
+	
+	// adding edges to the graph
+	// this graph is same as the graph we used in the above example
+	// we are assuming graph is connected and undirected
+	G.addEdge(1, 6);
+	G.addEdge(6, 3);
+	G.addEdge(3, 2);
+	G.addEdge(2, 1);
+	G.addEdge(2, 5);
+	G.addEdge(5, 4);
+	G.addEdge(4, 2);
+	
+	// function to print Euler Path or Euler Circuit
+	G.printEulerPathCircuit();
+}</pre>
+</div></div>
+</div></div></div>
+
+
+
+<p><strong>Output</strong></p>
+
+
+
+<pre class="wp-block-preformatted">Euler Circuit: 1 2 5 4 2 3 6 1</pre>
+
+
+
+<h2>Program for Directed Graph</h2>
+
+
+
+<p>The main difference between an undirected and directed graph program is the way we check if the graph contains Euler Path/Circuit or not.</p>
+
+
+
+<p><em><strong>Note:</strong> The final graph in the example section is the input.</em></p>
+
+
+
+<div class="wp-block-kadence-tabs alignnone"><div class="kt-tabs-wrap kt-tabs-id_7bd105-99 kt-tabs-has-1-tabs kt-active-tab-1 kt-tabs-layout-tabs kt-tabs-tablet-layout-inherit kt-tabs-mobile-layout-inherit kt-tab-alignment-left " style="max-width:none"><ul class="kt-tabs-title-list" role="tablist"><li id="tab-c" class="kt-title-item kt-title-item-1 kt-tabs-svg-show-always kt-tabs-icon-side-right kt-tab-title-active" role="presentation"><a href="https://slaystudy.com/hierholzers-algorithm/#tab-c" data-tab="1" class="kt-tab-title kt-tab-title-1 " role="tab" aria-selected="true" tabindex="0"><span class="kt-title-text">C++</span></a></li></ul><div class="kt-tabs-content-wrap">
+<div class="wp-block-kadence-tab kt-tab-inner-content kt-inner-tab-1 kt-inner-tab_f4f696-90" role="tabpanel" aria-hidden="false" aria-labelledby="tab-c"><div class="kt-tab-inner-content-inner">
+<div class="enlighter-default enlighter-v-standard enlighter-t-wpcustom enlighter-overflow-scroll "><div class="enlighter-toolbar-top enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw" title="Plain text"></div><div class="enlighter-btn enlighter-btn-copy" title="Copy to clipboard"></div><div class="enlighter-btn enlighter-btn-window" title="Open code in new window"></div><div class="enlighter-btn enlighter-btn-website" title="EnlighterJS 3 Syntax Highlighter"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-k4">#include&lt;iostream&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k4">#include&lt;vector&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k4">#include&lt;stack&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k4">#include&lt;unordered_map&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">using</span><span class="enlighter-text"> </span><span class="enlighter-k0">namespace</span><span class="enlighter-text"> std;</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">class</span><span class="enlighter-text"> Graph </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k5">int</span><span class="enlighter-text"> vertex;</span><span class="enlighter-c0"> // number of vertices</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    vector</span><span class="enlighter-g1">&lt;</span><span class="enlighter-text">unordered_map</span><span class="enlighter-g1">&lt;</span><span class="enlighter-k5">int</span><span class="enlighter-text">, </span><span class="enlighter-k5">int</span><span class="enlighter-g1">&gt;&gt;</span><span class="enlighter-text"> adj;</span><span class="enlighter-c0"> // adjacency list</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // store degree of each vertex</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // negative value means indegree more than outdegree</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // positive value means outdegree more than indegree</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    vector</span><span class="enlighter-g1">&lt;</span><span class="enlighter-k5">int</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"> degree;</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">public</span><span class="enlighter-text">:</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // constructor to initialize graph</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // set number of vertices to v</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">Graph</span><span class="enlighter-g1">(</span><span class="enlighter-k5">int</span><span class="enlighter-text"> v</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        vertex = v;</span></div></div><div class=""><div><span class="enlighter-text">        adj = vector</span><span class="enlighter-g1">&lt;</span><span class="enlighter-text">unordered_map</span><span class="enlighter-g1">&lt;</span><span class="enlighter-k5">int</span><span class="enlighter-text">, </span><span class="enlighter-k5">int</span><span class="enlighter-g1">&gt;&gt;(</span><span class="enlighter-text">v + 1</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">        degree = vector</span><span class="enlighter-g1">&lt;</span><span class="enlighter-k5">int</span><span class="enlighter-g1">&gt;(</span><span class="enlighter-text">v + 1, 0</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // add edge (u, v) to graph</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k5">void</span><span class="enlighter-text"> </span><span class="enlighter-m0">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-k5">int</span><span class="enlighter-text"> u, </span><span class="enlighter-k5">int</span><span class="enlighter-text"> v</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">u</span><span class="enlighter-g1">][</span><span class="enlighter-text">v</span><span class="enlighter-g1">]</span><span class="enlighter-text"> = 1;</span></div></div><div class=""><div><span class="enlighter-text">        degree</span><span class="enlighter-g1">[</span><span class="enlighter-text">u</span><span class="enlighter-g1">]</span><span class="enlighter-text">++;</span></div></div><div class=""><div><span class="enlighter-text">        degree</span><span class="enlighter-g1">[</span><span class="enlighter-text">v</span><span class="enlighter-g1">]</span><span class="enlighter-text">--;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // remove edge (u, v) from the graph</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k5">void</span><span class="enlighter-text"> </span><span class="enlighter-m0">removeEdge</span><span class="enlighter-g1">(</span><span class="enlighter-k5">int</span><span class="enlighter-text"> u, </span><span class="enlighter-k5">int</span><span class="enlighter-text"> v</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">u</span><span class="enlighter-g1">]</span><span class="enlighter-text">.</span><span class="enlighter-m3">erase</span><span class="enlighter-g1">(</span><span class="enlighter-text">v</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">        degree</span><span class="enlighter-g1">[</span><span class="enlighter-text">u</span><span class="enlighter-g1">]</span><span class="enlighter-text">--;</span></div></div><div class=""><div><span class="enlighter-text">        degree</span><span class="enlighter-g1">[</span><span class="enlighter-text">v</span><span class="enlighter-g1">]</span><span class="enlighter-text">++;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // function checks if the graph contains a euler path/circuit or not</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // if the graph is valid, then it calls printEuler()</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // to print Euler Path or circuit</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k5">void</span><span class="enlighter-text"> </span><span class="enlighter-m0">printEulerPathCircuit</span><span class="enlighter-g1">()</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">       </span><span class="enlighter-c0"> // start : vertex with indegree + 1 = outdegree</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">       </span><span class="enlighter-c0"> // indeg : number of vertices with indegree 1 more than outdegree</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">       </span><span class="enlighter-c0"> // outdeg: number of vertices with outdegree 1 more than indegree</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k5">int</span><span class="enlighter-text"> start, end, indeg, outdeg;</span></div></div><div class=""><div><span class="enlighter-text">        start = -1;</span></div></div><div class=""><div><span class="enlighter-text">        indeg = outdeg = 0;</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k1">for</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-k5">int</span><span class="enlighter-text"> i = 1; i </span><span class="enlighter-g1">&lt;</span><span class="enlighter-text">= vertex; ++i</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">degree</span><span class="enlighter-g1">[</span><span class="enlighter-text">i</span><span class="enlighter-g1">]</span><span class="enlighter-text"> == -1 &amp;&amp; indeg == 0</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                ++indeg;</span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k1">else</span><span class="enlighter-text"> </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">degree</span><span class="enlighter-g1">[</span><span class="enlighter-text">i</span><span class="enlighter-g1">]</span><span class="enlighter-text"> == 1 &amp;&amp; outdeg == 0</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                ++outdeg;</span></div></div><div class=""><div><span class="enlighter-text">                start = i;</span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k1">else</span><span class="enlighter-text"> </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">degree</span><span class="enlighter-g1">[</span><span class="enlighter-text">i</span><span class="enlighter-g1">]</span><span class="enlighter-text"> != 0</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                cout </span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-text"> </span><span class="enlighter-s0">"Euler Path/Circuit Doesn't Exist"</span><span class="enlighter-text"> </span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-text"> endl;</span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-k0">return</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">indeg == 1 &amp;&amp; outdeg == 1</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">           </span><span class="enlighter-c0"> // graph contains 1 vertex with indegree = outdegree + 1</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">           </span><span class="enlighter-c0"> // and 1 vertex with outdegree = indegree + 1</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">           </span><span class="enlighter-c0"> // thereforce, the graph must contain a euler path</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            cout </span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-text"> </span><span class="enlighter-s0">"Euler Path: "</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">           </span><span class="enlighter-c0"> // the euler path starts from vertex with outdegree = indegree + 1</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-m0">printEuler</span><span class="enlighter-g1">(</span><span class="enlighter-text">start</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k1">else</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">           </span><span class="enlighter-c0"> // graphs contains all vectices with indegree == outdegree</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">           </span><span class="enlighter-c0"> // thereforce, the graph must contain a euler circuit</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            cout </span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-text"> </span><span class="enlighter-s0">"Euler Curcuit: "</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">           </span><span class="enlighter-c0"> // euler circuit can start from any edge</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-m0">printEuler</span><span class="enlighter-g1">(</span><span class="enlighter-text">1</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // the function to print euler path or circuit</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k5">void</span><span class="enlighter-text"> </span><span class="enlighter-m0">printEuler</span><span class="enlighter-g1">(</span><span class="enlighter-k5">int</span><span class="enlighter-text"> v</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        stack</span><span class="enlighter-g1">&lt;</span><span class="enlighter-k5">int</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"> cpath;   </span><span class="enlighter-c0"> // current path</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        stack</span><span class="enlighter-g1">&lt;</span><span class="enlighter-k5">int</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"> epath;   </span><span class="enlighter-c0"> // euler path</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        cpath.</span><span class="enlighter-m3">push</span><span class="enlighter-g1">(</span><span class="enlighter-text">v</span><span class="enlighter-g1">)</span><span class="enlighter-text">;       </span><span class="enlighter-c0"> // euler path starts from v</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k1">while</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">!cpath.</span><span class="enlighter-m3">empty</span><span class="enlighter-g1">())</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k5">int</span><span class="enlighter-text"> u = cpath.</span><span class="enlighter-m3">top</span><span class="enlighter-g1">()</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">u</span><span class="enlighter-g1">]</span><span class="enlighter-text">.</span><span class="enlighter-m3">size</span><span class="enlighter-g1">()</span><span class="enlighter-text"> == 0</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">               </span><span class="enlighter-c0"> // if all edges from u are visited</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">               </span><span class="enlighter-c0"> // pop u and push it to euler path    </span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                epath.</span><span class="enlighter-m3">push</span><span class="enlighter-g1">(</span><span class="enlighter-text">u</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">                cpath.</span><span class="enlighter-m3">pop</span><span class="enlighter-g1">()</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-k1">else</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">               </span><span class="enlighter-c0"> // if all edges from u are not visited</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">               </span><span class="enlighter-c0"> // select any edge (u, v)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">               </span><span class="enlighter-c0"> // push v to current path and remove edge (u, v) from the graph</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                cpath.</span><span class="enlighter-m3">push</span><span class="enlighter-g1">(</span><span class="enlighter-text">adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">u</span><span class="enlighter-g1">]</span><span class="enlighter-text">.</span><span class="enlighter-m3">begin</span><span class="enlighter-g1">()</span><span class="enlighter-text">-</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">first</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-m0">removeEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">u, adj</span><span class="enlighter-g1">[</span><span class="enlighter-text">u</span><span class="enlighter-g1">]</span><span class="enlighter-text">.</span><span class="enlighter-m3">begin</span><span class="enlighter-g1">()</span><span class="enlighter-text">-</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">first</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k1">while</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">!epath.</span><span class="enlighter-m3">empty</span><span class="enlighter-g1">())</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            cout </span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-text"> </span><span class="enlighter-s0">" "</span><span class="enlighter-text"> </span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-text"> epath.</span><span class="enlighter-m3">top</span><span class="enlighter-g1">()</span><span class="enlighter-text"> </span><span class="enlighter-g1">&lt;&lt;</span><span class="enlighter-text"> </span><span class="enlighter-s0">" "</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            epath.</span><span class="enlighter-m3">pop</span><span class="enlighter-g1">()</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k5">int</span><span class="enlighter-text"> </span><span class="enlighter-m0">main</span><span class="enlighter-g1">()</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // graph G, containing 6 vertices from 1 to 6.</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    Graph </span><span class="enlighter-m0">G</span><span class="enlighter-g1">(</span><span class="enlighter-text">6</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // adding edges to the graph</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // this graph is same as the final graph in the example section</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">1, 6</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">6, 3</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">3, 2</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">2, 1</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">2, 5</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">5, 4</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">addEdge</span><span class="enlighter-g1">(</span><span class="enlighter-text">4, 2</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">   </span><span class="enlighter-c0"> // function to print Euler Path or Euler Circuit</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    G.</span><span class="enlighter-m3">printEulerPathCircuit</span><span class="enlighter-g1">()</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span></div></div></div><div class="enlighter-raw">#include&lt;iostream&gt;
+#include&lt;vector&gt;
+#include&lt;stack&gt;
+#include&lt;unordered_map&gt;
+using namespace std;
+
+class Graph {
+
+    int vertex; // number of vertices
+    vector&lt;unordered_map&lt;int, int&gt;&gt; adj; // adjacency list
+    // store degree of each vertex
+    // negative value means indegree more than outdegree
+    // positive value means outdegree more than indegree
+    vector&lt;int&gt; degree;
+
+public:
+
+    // constructor to initialize graph
+    // set number of vertices to v
+    Graph(int v) {
+        vertex = v;
+        adj = vector&lt;unordered_map&lt;int, int&gt;&gt;(v + 1);
+        degree = vector&lt;int&gt;(v + 1, 0);
+    }
+
+    // add edge (u, v) to graph
+    void addEdge(int u, int v) {
+        adj[u][v] = 1;
+        degree[u]++;
+        degree[v]--;
+    }
+
+    // remove edge (u, v) from the graph
+    void removeEdge(int u, int v) {
+        adj[u].erase(v);
+        degree[u]--;
+        degree[v]++;
+    }
+
+    // function checks if the graph contains a euler path/circuit or not
+    // if the graph is valid, then it calls printEuler()
+    // to print Euler Path or circuit
+    void printEulerPathCircuit() {
+
+        // start : vertex with indegree + 1 = outdegree
+        // indeg : number of vertices with indegree 1 more than outdegree
+        // outdeg: number of vertices with outdegree 1 more than indegree
+        int start, end, indeg, outdeg;
+        start = -1;
+        indeg = outdeg = 0;
+
+        for (int i = 1; i &lt;= vertex; ++i) {
+            if (degree[i] == -1 &amp;&amp; indeg == 0) {
+                ++indeg;
+            }
+            else if (degree[i] == 1 &amp;&amp; outdeg == 0) {
+                ++outdeg;
+                start = i;
+            }
+            else if (degree[i] != 0) {
+                cout &lt;&lt; "Euler Path/Circuit Doesn't Exist" &lt;&lt; endl;
+                return;
+            }
+        }
+
+        if (indeg == 1 &amp;&amp; outdeg == 1) {
+            // graph contains 1 vertex with indegree = outdegree + 1
+            // and 1 vertex with outdegree = indegree + 1
+            // thereforce, the graph must contain a euler path
+            cout &lt;&lt; "Euler Path: ";
+            // the euler path starts from vertex with outdegree = indegree + 1
+            printEuler(start);
+        }
+        else {
+            // graphs contains all vectices with indegree == outdegree
+            // thereforce, the graph must contain a euler circuit
+            cout &lt;&lt; "Euler Curcuit: ";
+            // euler circuit can start from any edge
+            printEuler(1);
+        }
+
+    }
+
+    // the function to print euler path or circuit
+    void printEuler(int v) {
+
+        stack&lt;int&gt; cpath;    // current path
+        stack&lt;int&gt; epath;    // euler path
+
+        cpath.push(v);        // euler path starts from v
+
+        while (!cpath.empty()) {
+            int u = cpath.top();
+
+            if (adj[u].size() == 0) {
+                // if all edges from u are visited
+                // pop u and push it to euler path    
+                epath.push(u);
+                cpath.pop();
+            }
+            else {
+                // if all edges from u are not visited
+                // select any edge (u, v)
+                // push v to current path and remove edge (u, v) from the graph
+                cpath.push(adj[u].begin()-&gt;first);
+                removeEdge(u, adj[u].begin()-&gt;first);
+            }
+        }
+
+        while (!epath.empty()) {
+            cout &lt;&lt; " " &lt;&lt; epath.top() &lt;&lt; " ";
+            epath.pop();
+        }
+
+    }
+
+};
+
+int main()
+{
+    // graph G, containing 6 vertices from 1 to 6.
+    Graph G(6);
+
+    // adding edges to the graph
+    // this graph is same as the final graph in the example section
+    G.addEdge(1, 6);
+    G.addEdge(6, 3);
+    G.addEdge(3, 2);
+    G.addEdge(2, 1);
+    G.addEdge(2, 5);
+    G.addEdge(5, 4);
+    G.addEdge(4, 2);
+
+    // function to print Euler Path or Euler Circuit
+    G.printEulerPathCircuit();
+}</div><div class="enlighter-toolbar-bottom enlighter-toolbar"></div></div><pre class="EnlighterJSRAW enlighter-origin" data-enlighter-language="cpp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">#include&lt;iostream&gt;
+#include&lt;vector&gt;
+#include&lt;stack&gt;
+#include&lt;unordered_map&gt;
+using namespace std;
+
+class Graph {
+
+	int vertex; // number of vertices
+	vector&lt;unordered_map&lt;int, int&gt;&gt; adj; // adjacency list
+	// store degree of each vertex
+	// negative value means indegree more than outdegree
+	// positive value means outdegree more than indegree
+	vector&lt;int&gt; degree;
+
+public:
+
+	// constructor to initialize graph
+	// set number of vertices to v
+	Graph(int v) {
+		vertex = v;
+		adj = vector&lt;unordered_map&lt;int, int&gt;&gt;(v + 1);
+		degree = vector&lt;int&gt;(v + 1, 0);
+	}
+
+	// add edge (u, v) to graph
+	void addEdge(int u, int v) {
+		adj[u][v] = 1;
+		degree[u]++;
+		degree[v]--;
+	}
+
+	// remove edge (u, v) from the graph
+	void removeEdge(int u, int v) {
+		adj[u].erase(v);
+		degree[u]--;
+		degree[v]++;
+	}
+
+	// function checks if the graph contains a euler path/circuit or not
+	// if the graph is valid, then it calls printEuler()
+	// to print Euler Path or circuit
+	void printEulerPathCircuit() {
+
+		// start : vertex with indegree + 1 = outdegree
+		// indeg : number of vertices with indegree 1 more than outdegree
+		// outdeg: number of vertices with outdegree 1 more than indegree
+		int start, end, indeg, outdeg;
+		start = -1;
+		indeg = outdeg = 0;
+
+		for (int i = 1; i &lt;= vertex; ++i) {
+			if (degree[i] == -1 &amp;&amp; indeg == 0) {
+				++indeg;
+			}
+			else if (degree[i] == 1 &amp;&amp; outdeg == 0) {
+				++outdeg;
+				start = i;
+			}
+			else if (degree[i] != 0) {
+				cout &lt;&lt; "Euler Path/Circuit Doesn't Exist" &lt;&lt; endl;
+				return;
+			}
+		}
+
+		if (indeg == 1 &amp;&amp; outdeg == 1) {
+			// graph contains 1 vertex with indegree = outdegree + 1
+			// and 1 vertex with outdegree = indegree + 1
+			// thereforce, the graph must contain a euler path
+			cout &lt;&lt; "Euler Path: ";
+			// the euler path starts from vertex with outdegree = indegree + 1
+			printEuler(start);
+		}
+		else {
+			// graphs contains all vectices with indegree == outdegree
+			// thereforce, the graph must contain a euler circuit
+			cout &lt;&lt; "Euler Curcuit: ";
+			// euler circuit can start from any edge
+			printEuler(1);
+		}
+
+	}
+
+	// the function to print euler path or circuit
+	void printEuler(int v) {
+
+		stack&lt;int&gt; cpath;	// current path
+		stack&lt;int&gt; epath;	// euler path
+
+		cpath.push(v);		// euler path starts from v
+
+		while (!cpath.empty()) {
+			int u = cpath.top();
+
+			if (adj[u].size() == 0) {
+				// if all edges from u are visited
+				// pop u and push it to euler path	
+				epath.push(u);
+				cpath.pop();
+			}
+			else {
+				// if all edges from u are not visited
+				// select any edge (u, v)
+				// push v to current path and remove edge (u, v) from the graph
+				cpath.push(adj[u].begin()-&gt;first);
+				removeEdge(u, adj[u].begin()-&gt;first);
+			}
+		}
+
+		while (!epath.empty()) {
+			cout &lt;&lt; " " &lt;&lt; epath.top() &lt;&lt; " ";
+			epath.pop();
+		}
+
+	}
+
+};
+
+int main()
+{
+	// graph G, containing 6 vertices from 1 to 6.
+	Graph G(6);
+
+	// adding edges to the graph
+	// this graph is same as the final graph in the example section
+	G.addEdge(1, 6);
+	G.addEdge(6, 3);
+	G.addEdge(3, 2);
+	G.addEdge(2, 1);
+	G.addEdge(2, 5);
+	G.addEdge(5, 4);
+	G.addEdge(4, 2);
+
+	// function to print Euler Path or Euler Circuit
+	G.printEulerPathCircuit();
+}</pre>
+</div></div>
+</div></div></div>
+
+
+
+<p><strong>Output</strong></p>
+
+
+
+<pre class="wp-block-preformatted">Euler Curcuit: 1 6 3 2 5 4 2 1</pre>
+
+
+
+<h2>Time Complexity</h2>
+
+
+
+<p>We are visiting each edge of the graph exactly once. Deleting an edge takes <img loading="lazy" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/quicklatex.com-3b2df718721f1cc7af99816cfbd06ef8_l3.svg" class="ql-img-inline-formula quicklatex-auto-format" alt="O(1)" title="Rendered by QuickLaTeX.com" height="20" width="40" style="vertical-align: -5px;"> time.</p>
+
+
+
+<p><img loading="lazy" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/quicklatex.com-d9a28107d4ec800110de78fe2ffeba98_l3.svg" class="ql-img-inline-formula quicklatex-auto-format" alt="Time\; Complexity = O(E)" title="Rendered by QuickLaTeX.com" height="20" width="231" style="vertical-align: -5px;"></p>
+
+
+
+<p><strong>Read</strong><br><a href="https://slaystudy.com/euler-path-and-euler-circuit/">Euler Path and Euler Circuit</a><br><a href="https://slaystudy.com/bipartite-graph/">Bipartite Graph</a><br><a href="https://slaystudy.com/fleurys-algorithm/">Fleury’s algorithm</a></p>
+
+
+
+<p><strong>References</strong><br><a href="https://en.wikipedia.org/wiki/Eulerian_path#Hierholzer&#39;s_algorithm">Hierholzer’s algorithm</a></p>
+
+<!-- Quick Adsense WordPress Plugin: http://quickadsense.com/ -->
+<div class="a42d36215e8051fb1911824f7dab3f58" data-index="2" style="float: none; margin:32px 0 32px 0; text-align:center;">
+<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/f.txt" defer="" data-deferred="1"></script>
+<!-- after content ad -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2603627329934270" data-ad-slot="8811213065" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script src="data:text/javascript;base64,KGFkc2J5Z29vZ2xlPXdpbmRvdy5hZHNieWdvb2dsZXx8W10pLnB1c2goe30p" defer=""></script>
+</div>
+
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div>
+		
+		
+			</div><!-- .entry-content .clear -->
+</div>
+
+	
+</article><!-- #post-## -->
+
+
+	<nav class="navigation post-navigation" role="navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://slaystudy.com/fleurys-algorithm/" rel="prev"><span class="ast-left-arrow">←</span> Previous Post</a></div><div class="nav-next"><a href="https://slaystudy.com/advantages-and-disadvantages-of-pushdown-automata/" rel="next">Next Post <span class="ast-right-arrow">→</span></a></div></div>
+	</nav>
+<div id="comments" class="comments-area">
+
+	
+			<div class="comments-count-wrapper">
+			<h3 class="comments-title">
+				1 thought on “Hierholzer’s Algorithm”			</h3>
+		</div>
+
+		
+		<ol class="ast-comment-list">
+							<li class="comment even thread-even depth-1" id="li-comment-377">
+
+					<article id="comment-377" class="ast-comment">
+						<div class="ast-comment-avatar-wrap"><img alt="" src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/702f399d8237fc594a92ae97ab593cbb" srcset="https://secure.gravatar.com/avatar/702f399d8237fc594a92ae97ab593cbb?s=100&amp;d=retro&amp;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy"></div><!-- Remove 1px Space
+						--><div class="ast-comment-data-wrap">
+							<div class="ast-comment-meta-wrap">
+								<header class="ast-comment-meta ast-row ast-comment-author vcard capitalize"><div class="ast-comment-cite-wrap ast-col-lg-12"><cite><b class="fn">Nurgazy Nazhimidinov</b> </cite></div><div class="ast-comment-time ast-col-lg-12"><span class="timendate"><a href="https://slaystudy.com/hierholzers-algorithm/#comment-377"><time datetime="2021-07-12T12:21:00+00:00">July 12, 2021 at 12:21 pm</time></a></span></div>
+								</header> <!-- .ast-comment-meta -->
+							</div>
+							<section class="ast-comment-content comment">
+								<p>Awesome article! It cleared many things that I didn’t understand from other articles.</p>
+								<div class="ast-comment-edit-reply-wrap">
+																		<span class="ast-reply-link"><a rel="nofollow" class="comment-reply-link" href="https://slaystudy.com/hierholzers-algorithm/#comment-377" data-commentid="377" data-postid="4875" data-belowelement="comment-377" data-respondelement="respond" data-replyto="Reply to Nurgazy Nazhimidinov" aria-label="Reply to Nurgazy Nazhimidinov">Reply</a></span>								</div>
+															</section> <!-- .ast-comment-content -->
+						</div>
+					</article><!-- #comment-## -->
+				<!-- </li> -->
+				</li><!-- #comment-## -->
+		</ol><!-- .ast-comment-list -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://slaystudy.com/hierholzers-algorithm/#respond" style="display:none;">Cancel Reply</a></small></h3><form action="https://slaystudy.com/wp-comments-post.php" method="post" id="ast-commentform" class="comment-form"><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p><div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ast-col-lg-12"><label for="comment" class="screen-reader-text">Type here..</label><textarea id="comment" name="comment" placeholder="Type here.." cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div><div class="ast-comment-formwrap ast-row"><p class="comment-form-author ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4"><label for="author" class="screen-reader-text">Name*</label><input id="author" name="author" type="text" value="" placeholder="Name*" size="30" aria-required="true"></p>
+<p class="comment-form-email ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4"><label for="email" class="screen-reader-text">Email*</label><input id="email" name="email" type="text" value="" placeholder="Email*" size="30" aria-required="true"></p>
+<p class="comment-form-url ast-col-xs-12 ast-col-sm-12 ast-col-md-4 ast-col-lg-4"><label for="url"><label for="url" class="screen-reader-text">Website</label><input id="url" name="url" type="text" value="" placeholder="Website" size="30"></label></p></div>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment »"> <input type="hidden" name="comment_post_ID" value="4875" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="5dc045e973"></p><p style="display: none !important;"><label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js" name="ak_js" value="1637820969101"><script src="data:text/javascript;base64,ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoImFrX2pzIikuc2V0QXR0cmlidXRlKCJ2YWx1ZSIsKG5ldyBEYXRlKCkpLmdldFRpbWUoKSk=" defer=""></script></p></form>	</div><!-- #respond -->
+	
+	
+</div><!-- #comments -->
+
+					
+					
+				
+			</main><!-- #main -->
+			
+		
+	</div><!-- #primary -->
+
+
+	<div class="widget-area secondary" id="secondary" role="complementary" itemtype="https://schema.org/WPSideBar" itemscope="itemscope">
+	<div class="sidebar-main">
+
+		
+		
+			
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<aside id="adswidget1-quick-adsense-13" class="widget widget_adswidget1-quick-adsense"><script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/f.txt" defer="" data-deferred="1"></script>
+<!-- widget ad -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2603627329934270" data-ad-slot="4372284925" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script src="data:text/javascript;base64,KGFkc2J5Z29vZ2xlPXdpbmRvdy5hZHNieWdvb2dsZXx8W10pLnB1c2goe30p" defer=""></script></aside>
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<aside id="adswidget2-quick-adsense-17" class="widget widget_adswidget2-quick-adsense"><script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/f.txt" defer="" data-deferred="1"></script>
+<!-- widget 3 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2603627329934270" data-ad-slot="8892218470" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script src="data:text/javascript;base64,KGFkc2J5Z29vZ2xlPXdpbmRvdy5hZHNieWdvb2dsZXx8W10pLnB1c2goe30p" defer=""></script></aside>
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<aside id="adswidget3-quick-adsense-9" class="widget widget_adswidget3-quick-adsense"><script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/f.txt" defer="" data-deferred="1"></script>
+<!-- widget 4 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2603627329934270" data-ad-slot="5234045654" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script src="data:text/javascript;base64,KGFkc2J5Z29vZ2xlPXdpbmRvdy5hZHNieWdvb2dsZXx8W10pLnB1c2goe30p" defer=""></script></aside><aside id="text-5" class="widget widget_text">			<div class="textwidget"><p>Thanks for visiting this site. If you face any problem or find any error feel free to <a href="https://slaystudy.com/contact-us/">contact us</a>.</p>
+</div>
+		</aside>
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<aside id="adswidget4-quick-adsense-9" class="widget widget_adswidget4-quick-adsense"><script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/f.txt" defer="" data-deferred="1"></script>
+<!-- widget5 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2603627329934270" data-ad-slot="4343281564" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script src="data:text/javascript;base64,KGFkc2J5Z29vZ2xlPXdpbmRvdy5hZHNieWdvb2dsZXx8W10pLnB1c2goe30p" defer=""></script></aside>
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<aside id="adswidget5-quick-adsense-5" class="widget widget_adswidget5-quick-adsense"><script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/f.txt" defer="" data-deferred="1"></script>
+<!-- widget6 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2603627329934270" data-ad-slot="9099950073" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script src="data:text/javascript;base64,KGFkc2J5Z29vZ2xlPXdpbmRvdy5hZHNieWdvb2dsZXx8W10pLnB1c2goe30p" defer=""></script></aside>
+<!-- Quick Adsense Wordpress Plugin: http://quickadsense.com/ -->
+<aside id="adswidget6-quick-adsense-3" class="widget widget_adswidget6-quick-adsense"><script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/f.txt" defer="" data-deferred="1"></script>
+<!-- widget 7 -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2603627329934270" data-ad-slot="5812453511" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script src="data:text/javascript;base64,KGFkc2J5Z29vZ2xlPXdpbmRvdy5hZHNieWdvb2dsZXx8W10pLnB1c2goe30p" defer=""></script></aside>
+		
+		
+	</div><!-- .sidebar-main -->
+</div><!-- #secondary -->
+
+
+			
+			</div> <!-- ast-container -->
+
+		</div><!-- #content -->
+
+		
+		
+		
+		<footer class="site-footer" id="colophon" itemtype="https://schema.org/WPFooter" itemscope="itemscope" itemid="#colophon">
+
+			
+			
+<div class="ast-small-footer footer-sml-layout-1">
+	<div class="ast-footer-overlay">
+		<div class="ast-container">
+			<div class="ast-small-footer-wrap">
+									<div class="ast-small-footer-section ast-small-footer-section-1">
+						Copyright © 2021 <span class="ast-footer-site-title">SlayStudy</span>					</div>
+				
+									<div class="ast-small-footer-section ast-small-footer-section-2">
+						<a href="https://slaystudy.com/privacy-policy/">Privacy Policy</a>					</div>
+				
+			</div><!-- .ast-row .ast-small-footer-wrap -->
+		</div><!-- .ast-container -->
+	</div><!-- .ast-footer-overlay -->
+</div><!-- .ast-small-footer-->
+
+			
+		</footer><!-- #colophon -->
+		
+		
+	</div><!-- #page -->
+
+	
+	<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/f.txt" defer="" data-deferred="1"></script>
+<!-- footer -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2603627329934270" data-ad-slot="1359248392" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script src="data:text/javascript;base64,KGFkc2J5Z29vZ2xlPXdpbmRvdy5hZHNieWdvb2dsZXx8W10pLnB1c2goe30p" defer=""></script><script type="text/javascript" src="data:text/javascript;base64,dmFyIGpRdWVyeVNjcmlwdE91dHB1dHRlZD0hMTtmdW5jdGlvbiBpbml0SlF1ZXJ5KCl7aWYodHlwZW9mKGpRdWVyeSk9PSJ1bmRlZmluZWQiKXtpZighalF1ZXJ5U2NyaXB0T3V0cHV0dGVkKXtqUXVlcnlTY3JpcHRPdXRwdXR0ZWQ9ITA7ZG9jdW1lbnQud3JpdGUoIjxzY3IiKyJpcHQgdHlwZT1cInRleHQvamF2YXNjcmlwdFwiIHNyYz1cImh0dHBzOi8vY29kZS5qcXVlcnkuY29tL2pxdWVyeS0xLjguMi5taW4uanNcIj48L3NjciIrImlwdD4iKX1zZXRUaW1lb3V0KCJpbml0SlF1ZXJ5KCkiLDUwKX19aW5pdEpRdWVyeSgp" defer=""></script><script type="text/javascript" src="data:text/javascript;base64,alF1ZXJ5KGRvY3VtZW50KS5yZWFkeShmdW5jdGlvbigpe2pRdWVyeSgiLmE0MmQzNjIxNWU4MDUxZmIxOTExODI0ZjdkYWIzZjU4IikuY2xpY2soZnVuY3Rpb24oKXtqUXVlcnkucG9zdCgiaHR0cHM6Ly9zbGF5c3R1ZHkuY29tL3dwLWFkbWluL2FkbWluLWFqYXgucGhwIix7ImFjdGlvbiI6InF1aWNrX2Fkc2Vuc2Vfb25wb3N0X2FkX2NsaWNrIiwicXVpY2tfYWRzZW5zZV9vbnBvc3RfYWRfaW5kZXgiOmpRdWVyeSh0aGlzKS5hdHRyKCJkYXRhLWluZGV4IiksInF1aWNrX2Fkc2Vuc2Vfbm9uY2UiOiJlN2FhNzQzNjkyIix9LGZ1bmN0aW9uKHJlc3BvbnNlKXt9KX0pfSk=" defer=""></script><script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/comment-reply.min.js.download" id="comment-reply-js" defer="" data-deferred="1"></script>
+<script id="astra-theme-js-js-extra" src="data:text/javascript;base64,dmFyIGFzdHJhPXsiYnJlYWtfcG9pbnQiOiI5MjEiLCJpc1J0bCI6IiJ9" defer=""></script>
+<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/style.min.js.download" id="astra-theme-js-js" defer="" data-deferred="1"></script>
+<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/js.cookie.min.js.download" id="js-cookie-js" defer="" data-deferred="1"></script>
+<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/jquery.iframetracker.min.js.download" id="js-iframe-tracker-js" defer="" data-deferred="1"></script>
+<script id="aicp-js-extra" src="data:text/javascript;base64,dmFyIEFJQ1A9eyJhamF4dXJsIjoiaHR0cHM6XC9cL3NsYXlzdHVkeS5jb21cL3dwLWFkbWluXC9hZG1pbi1hamF4LnBocCIsIm5vbmNlIjoiODRmMjYyYTNkMyIsImlwIjoiODMuODEuMjUuMTc2IiwiY2xpY2tMaW1pdCI6IjMiLCJjbGlja0NvdW50ZXJDb29raWVFeHAiOiIzIiwiYmFuRHVyYXRpb24iOiI3IiwiY291bnRyeUJsb2NrQ2hlY2siOiJObyIsImJhbkNvdW50cnlMaXN0IjoiIn0=" defer=""></script>
+<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/aicp.min.js.download" id="aicp-js" defer="" data-deferred="1"></script>
+<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/kt-tabs-min.js.download" id="kadence-blocks-tabs-js-js" defer="" data-deferred="1"></script>
+<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/enlighterjs.min.js.download" id="enlighterjs-js" defer="" data-deferred="1"></script>
+<script src="./Hierholzer&#39;s Algorithm _ SlayStudy_files/wp-embed.min.js.download" id="wp-embed-js" defer="" data-deferred="1"></script>
+			<script src="data:text/javascript;base64,Lyh0cmlkZW50fG1zaWUpL2kudGVzdChuYXZpZ2F0b3IudXNlckFnZW50KSYmZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQmJndpbmRvdy5hZGRFdmVudExpc3RlbmVyJiZ3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcigiaGFzaGNoYW5nZSIsZnVuY3Rpb24oKXt2YXIgdCxlPWxvY2F0aW9uLmhhc2guc3Vic3RyaW5nKDEpOy9eW0EtejAtOV8tXSskLy50ZXN0KGUpJiYodD1kb2N1bWVudC5nZXRFbGVtZW50QnlJZChlKSkmJigvXig/OmF8c2VsZWN0fGlucHV0fGJ1dHRvbnx0ZXh0YXJlYSkkL2kudGVzdCh0LnRhZ05hbWUpfHwodC50YWJJbmRleD0tMSksdC5mb2N1cygpKX0sITEp" defer=""></script>
+			
+	
+
+
+<!-- Page generated by LiteSpeed Cache 4.4.3 on 2021-11-24 20:57:02 --><div style="position:fixed; top:0; left:0; overflow:hidden;"><input style="position:absolute; left:-300px;" type="text" value="" id="focus_retriever" readonly="true"></div></body></html>
