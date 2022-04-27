@@ -39,6 +39,6 @@ int minSwaps(vector<int> &nums)
 
 int main()
 {
-
+    cout << "Hello World\n";
     return 0;
 }
