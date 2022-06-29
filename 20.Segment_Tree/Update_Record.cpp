@@ -47,6 +47,11 @@ int main()
     int arr[n];
     for (int i = 0; i < n; i++)
         cin >> arr[i];
+
+    /*
+     we are constructing tree in form of array linearly therefore
+    we have to make 4*n size array for n size given array
+    */
     int segTree[4 * n] = {0};
     constructSegTree(0, n - 1, 0, arr, segTree);
     cout << getSum(0, 2, 0, n - 1, 0, segTree) << "\n";
