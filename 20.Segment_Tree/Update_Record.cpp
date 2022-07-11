@@ -54,10 +54,6 @@ int main()
     */
     int segTree[4 * n] = {0};
     constructSegTree(0, n - 1, 0, arr, segTree);
-    cout << getSum(0, 2, 0, n - 1, 0, segTree) << "\n";
-    Update_Record(0, n - 1, 1, 0, 60 - arr[1], segTree);
-    cout << getSum(0, 2, 0, n - 1, 0, segTree) << "\n";
-    cin >> n;
 
     cout << "\n";
     return 0;

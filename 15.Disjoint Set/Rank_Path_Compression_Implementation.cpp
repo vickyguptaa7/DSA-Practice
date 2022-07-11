@@ -50,7 +50,7 @@ public:
             rank[x_rep]++;
         }
     }
-};
+}; 
 
 int main()
 {
